@@ -7,9 +7,11 @@ import java.util.logging.Logger;
 
 import org.modelexecution.fumldebug.core.ExecutionEventListener;
 import org.modelexecution.fumldebug.core.event.Event;
+import org.modelexecution.xmof.vm.IXMOFVirtualMachineListener;
 import org.modelexecution.xmof.vm.XMOFVirtualMachine;
+import org.modelexecution.xmof.vm.XMOFVirtualMachineEvent;
 
-public class CodeGenerator implements ExecutionEventListener {
+public class CodeGenerator implements ExecutionEventListener, IXMOFVirtualMachineListener {
 	
 	private static final Logger LOG = Logger.getLogger(CodeGenerator.class.getName()) ;
 	
@@ -25,18 +27,34 @@ public class CodeGenerator implements ExecutionEventListener {
 	
 	public void generate(Writer writer) {
 		this.writer = new BufferedWriter(writer);
+		vm.addVirtualMachineListener(this);
 		vm.run();		
+		
 	}
 	
 	@Override
 	public void notify(Event event) {
 		try {
-			
 			// TODO: generate code
-			writer.write(event.toString());
+			writer.write(event.toString()+"\n");
 			
 		} catch (IOException e) {
 			LOG.severe("Failed to write event: " + event.toString());			
+		}
+	}
+
+	@Override
+	public void notify(XMOFVirtualMachineEvent event) {
+		switch (event.getType()) {
+		case START:
+			vm.addRawExecutionEventListener(this);
+			break;
+		case STOP:
+			vm.removeRawExecutionEventListener(this);
+			vm.removeVirtualMachineListener(this);
+			break;
+		default:
+			break;
 		}
 	}
 	

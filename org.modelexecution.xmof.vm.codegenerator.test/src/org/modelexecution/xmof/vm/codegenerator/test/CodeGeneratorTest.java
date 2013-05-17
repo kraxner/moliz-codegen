@@ -1,7 +1,8 @@
 package org.modelexecution.xmof.vm.codegenerator.test;
 
 import java.io.File;
-import java.io.OutputStreamWriter;
+import java.io.StringWriter;
+import java.util.logging.Logger;
 
 import org.eclipse.emf.common.util.URI;
 import org.junit.Assert;
@@ -12,6 +13,7 @@ import org.modelexecution.xmof.vm.codegenerator.CodeGenerator;
 import org.modelexecution.xmof.vm.codegenerator.XMOFBasedModelLoader;
 
 public class CodeGeneratorTest {
+	private static final Logger LOG = Logger.getLogger(CodeGeneratorTest.class.getName()) ;
 	
 	/**
 	 * runs model iml1.xmi with the vm
@@ -30,8 +32,11 @@ public class CodeGeneratorTest {
 		
 		CodeGenerator codeGen = new CodeGenerator();
 		codeGen.init(new XMOFVirtualMachine(xmofModel));
-		codeGen.generate(new OutputStreamWriter(System.out));
+		StringWriter out = new StringWriter();
+		codeGen.generate(out);
 		
+		LOG.info("generated code:");
+		LOG.info(out.toString());
 	}
 
 }
