@@ -20,36 +20,42 @@ import org.modelexecution.xmof.configuration.ConfigurationObjectMap;
 import org.modelexecution.xmof.vm.XMOFBasedModel;
 
 /**
- * Helper class to create an xMOF based model. 
+ * Helper class to create an xMOF based model.
  * 
  * @author micalo
  */
 public class XMOFBasedModelLoader {
-	private static final Logger LOG = Logger.getLogger(XMOFBasedModelLoader.class.getName()) ;
-	
+	private static final Logger LOG = Logger
+			.getLogger(XMOFBasedModelLoader.class.getName());
+
 	private ResourceSet resourceSet;
 	private ConfigurationObjectMap configurationMap;
-	
-	
+
 	public XMOFBasedModelLoader() {
-		// create a resource set and add a default factory for xmi files, this way it works also outside of exclipse
+		// create a resource set and add a default factory for xmi files, this
+		// way it works also outside of eclipse
 		resourceSet = new ResourceSetImpl();
-		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());		
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
+				.put("*", new XMIResourceFactoryImpl());
 	}
-	
 
 	/**
-	 * Creates an xMOF based model from a given model instance, the corresponding xMOF configuration and and optional
-	 * initialization model.
+	 * Creates an xMOF based model from a given model instance, the
+	 * corresponding xMOF configuration and and optional initialization model.
 	 * 
-	 * NOTE: Provide absolute URIs to prevent problems with resolving referenced schemas.    
+	 * NOTE: Provide absolute URIs to prevent problems with resolving referenced
+	 * schemas.
 	 * 
-	 * @param xmofFile	 URI of the xMOF configuration	
-	 * @param inputModelFile	URI of the model instance
-	 * @param initModelFile		URI of the initialization model (optional)
-	 * @return 
+	 * @param xmofFile
+	 *            URI of the xMOF configuration
+	 * @param inputModelFile
+	 *            URI of the model instance
+	 * @param initModelFile
+	 *            URI of the initialization model (optional)
+	 * @return
 	 */
-	public XMOFBasedModel loadXMOFBasedModel(URI xmofFile, URI inputModelFile, URI initModelFile) {
+	public XMOFBasedModel loadXMOFBasedModel(URI xmofFile, URI inputModelFile,
+			URI initModelFile) {
 		Collection<EObject> inputModelElements = loadModelElements(inputModelFile);
 		Collection<EObject> initializationModelElements = loadModelElements(initModelFile);
 
@@ -64,8 +70,9 @@ public class XMOFBasedModelLoader {
 			return new XMOFBasedModel(inputModelElements);
 		}
 	}
-	
-	private Collection<EPackage> loadConfigurationMetamodel(URI confMetamodelPath) {
+
+	private Collection<EPackage> loadConfigurationMetamodel(
+			URI confMetamodelPath) {
 		Resource resource = loadResource(confMetamodelPath);
 		Collection<EPackage> confMMPackages = new ArrayList<EPackage>();
 		for (EObject eObject : resource.getContents()) {
@@ -89,10 +96,12 @@ public class XMOFBasedModelLoader {
 			registeredPackage.eResource().unload();
 			registeredPackage.eResource().load(null);
 		} catch (IOException e) {
-			LOG.log(Level.SEVERE, "Failed to reload epackage " + String.valueOf(registeredPackage.getName()), e);
+			LOG.log(Level.SEVERE,
+					"Failed to reload epackage "
+							+ String.valueOf(registeredPackage.getName()), e);
 		}
-	}	
-	
+	}
+
 	public Collection<EObject> loadModelElements(URI uri) {
 		Resource resource = loadResource(uri);
 		if (resource == null) {
@@ -100,8 +109,7 @@ public class XMOFBasedModelLoader {
 		}
 		return resource.getContents();
 	}
-	
-	
+
 	private Resource loadResource(URI uri) {
 		if (uri == null) {
 			return null;
@@ -110,15 +118,16 @@ public class XMOFBasedModelLoader {
 		options.put(XMLResource.OPTION_EXTENDED_META_DATA, Boolean.TRUE);
 		// options.put(XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
 		options.put(XMLResource.OPTION_ENCODING, "UTF-8");
-		
+
 		Resource resource = resourceSet.createResource(uri);
 		try {
 			resource.load(options);
 			return resource;
 		} catch (IOException e) {
-			LOG.log(Level.SEVERE, "Failed to load resource " + String.valueOf(uri), e);
+			LOG.log(Level.SEVERE,
+					"Failed to load resource " + String.valueOf(uri), e);
 		}
 		return null;
-	}	
-	
+	}
+
 }

@@ -13,28 +13,35 @@ import org.modelexecution.xmof.vm.codegenerator.CodeGenerator;
 import org.modelexecution.xmof.vm.codegenerator.XMOFBasedModelLoader;
 
 public class CodeGeneratorTest {
-	private static final Logger LOG = Logger.getLogger(CodeGeneratorTest.class.getName()) ;
+	private static final Logger LOG = Logger.getLogger(CodeGeneratorTest.class
+			.getName());
+
+	
 	
 	/**
 	 * runs model iml1.xmi with the vm
 	 * 
-	 * NOTE: this test needs to be "run as JUnit Plug-in Test", else some schemas cannot be resolved:
-	 *       (e.g.: http://www.modelexecution.org/xmof/syntax/classes/mykernel) 
+	 * NOTE: this test needs to be "run as JUnit Plug-in Test", else some
+	 * schemas cannot be resolved: (e.g.:
+	 * http://www.modelexecution.org/xmof/syntax/classes/mykernel)
 	 */
 	@Test
 	public void testImpl() {
-		URI xmofFile = URI.createFileURI((new File("resources/iml/impl.xmof")).getAbsolutePath());
-		URI inputModelFile = URI.createFileURI((new File("resources/iml/iml1.xmi")).getAbsolutePath());
+		URI xmofFile = URI.createFileURI((new File("resources/iml/impl.xmof"))
+				.getAbsolutePath());
+		URI inputModelFile = URI.createFileURI((new File(
+				"resources/iml/iml1.xmi")).getAbsolutePath());
 
 		XMOFBasedModelLoader loader = new XMOFBasedModelLoader();
-		XMOFBasedModel xmofModel = loader.loadXMOFBasedModel(xmofFile, inputModelFile, null);
+		XMOFBasedModel xmofModel = loader.loadXMOFBasedModel(xmofFile,
+				inputModelFile, null);
 		Assert.assertNotNull(xmofModel);
-		
+
 		CodeGenerator codeGen = new CodeGenerator();
 		codeGen.init(new XMOFVirtualMachine(xmofModel));
 		StringWriter out = new StringWriter();
 		codeGen.generate(out);
-		
+
 		LOG.info("generated code:");
 		LOG.info(out.toString());
 	}

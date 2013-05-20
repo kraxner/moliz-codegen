@@ -16,11 +16,13 @@ public class Activator implements BundleActivator {
 	static BundleContext getContext() {
 		return context;
 	}
-	
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
+	 * 
+	 * @see
+	 * org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext
+	 * )
 	 */
 	public void start(BundleContext bundleContext) throws Exception {
 		Activator.context = bundleContext;
@@ -29,18 +31,21 @@ public class Activator implements BundleActivator {
 				LogService.class.getName(), null);
 		logServiceTracker.open();
 		logService = (LogService) logServiceTracker.getService();
-		
+
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * @see org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
+	 * 
+	 * @see
+	 * org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
 	 */
 	public void stop(BundleContext bundleContext) throws Exception {
 		Activator.context = null;
 		logServiceTracker.close();
-		logServiceTracker = null;		
+		logServiceTracker = null;
 	}
+
 	public LogService getLog() {
 		return logService;
 	}
