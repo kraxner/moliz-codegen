@@ -1,4 +1,4 @@
-The moliz-codegen project evaluates the potential and limitations of using the moliz project, in particular its virtual machine, for code generation.
+The moliz-codegen project evaluates the potential and limitations of using the moliz project, in particular its virtual machine, for code generation based on object observation.
 
 
 The moliz-codegen project is done as part of the advanced model engineering course 2013 under guidance of the Business Informatics Group, a research group of the Institute of Software Technology and Interactive Systems at the Vienna University of Technology. 
