@@ -1,0 +1,36 @@
+module org.modelexecution.xmof.codegenerator.gen.XMOFGenerator
+
+import org.eclipse.emf.mwe.utils.*
+
+var targetDir = "src-gen"
+var modelPath = "model"
+
+Workflow {
+
+	bean = StandaloneSetup {
+		registerGeneratedEPackage = "org.modelexecution.xmof.codegenerator"
+	}
+
+	component = DirectoryCleaner {
+		directory = targetDir
+	}
+
+	component = org.modelexecution.xmof.codegenerator.gen.XMOFGeneratorSupport {}
+
+	component = org.eclipse.xtext.mwe.Reader {
+		path = modelPath
+		register = org.modelexecution.xmof.codegenerator.gen.XMOFGeneratorSetup {}
+		loadResource = {
+			slot = "model"
+		}
+	}
+
+	component = org.eclipse.xtext.generator.GeneratorComponent {
+		register = org.modelexecution.xmof.codegenerator.gen.XMOFGeneratorSetup {}
+		slot = 'model'
+		outlet = {
+			path = targetDir
+		}
+	}
+	
+}

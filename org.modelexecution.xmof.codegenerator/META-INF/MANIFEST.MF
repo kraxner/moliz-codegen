@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.modelexecution.xmof.codegenerator
+Bundle-SymbolicName: org.modelexecution.xmof.codegenerator; singleton:=true
+Bundle-Version: 1.0.0
+Require-Bundle: at.ac.tuwien.big.me12.csv;bundle-version="1.0.0",
+ org.eclipse.xtend.lib;bundle-version="2.3.1",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.3.1",
+ org.eclipse.xtext.generator;bundle-version="2.3.1",
+ org.eclipse.xtext,
+ org.eclipse.emf.mwe2.launch;bundle-version="2.3.0",
+ org.apache.log4j;bundle-version="1.2.15",
+ org.apache.commons.logging;bundle-version="1.0.4"
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+
