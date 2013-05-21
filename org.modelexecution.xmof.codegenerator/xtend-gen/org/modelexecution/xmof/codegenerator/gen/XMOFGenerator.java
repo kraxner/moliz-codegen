@@ -1,6 +1,7 @@
 package org.modelexecution.xmof.codegenerator.gen;
 
-import javax.lang.model.element.Element;
+import fsa.FSA;
+import fsa.State;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -11,22 +12,22 @@ import org.eclipse.xtext.generator.IGenerator;
 public class XMOFGenerator implements IGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     EList<EObject> _contents = resource.getContents();
-    for (final EObject o : _contents) {
-      this.compile(o, fsa);
+    for (final EObject obj : _contents) {
+      boolean _matched = false;
+      if (!_matched) {
+        if (obj instanceof FSA) {
+          final FSA _fSA = (FSA)obj;
+          _matched=true;
+          this.generate(_fSA, fsa);
+        }
+      }
     }
   }
   
-  public Object compile(final Element e, final IFileSystemAccess fsa) {
-    return null;
-  }
-  
-  protected void _compile(final EObject m, final IFileSystemAccess fsa) {
-  }
-  
-  public void compile(final EObject m, final IFileSystemAccess fsa) {
-    {
-      _compile(m, fsa);
-      return;
+  public void generate(final FSA m, final IFileSystemAccess fsa) {
+    EList<State> _states = m.getStates();
+    for (final State s : _states) {
+      fsa.generateFile("asfd", "asdf");
     }
   }
 }

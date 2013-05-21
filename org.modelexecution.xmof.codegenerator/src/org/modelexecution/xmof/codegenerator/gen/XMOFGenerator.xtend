@@ -4,29 +4,38 @@ import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.emf.ecore.EObject
-import javax.lang.model.element.Element
+import fsa.FSA
+import fsa.State
 
 class XMOFGenerator implements IGenerator{
 	
 
 	 override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-        for (EObject o : resource.contents) {
-            o.compile(fsa)
-        }
+        for (EObject obj : resource.contents) {
+			switch (obj) {
+				FSA : obj.generate(fsa)
+			}
+		}
     }
  
-//    def dispatch void compile(FSA m, IFileSystemAccess fsa) {
-//        for (e : m.elements) {
+    def void generate(FSA m, IFileSystemAccess fsa) {
+    	
+    	
+    	for (State s : m.getStates()) {
+    		fsa.generateFile("asfd", "asdf");
+    		
+    	}
+//        for (e : m) {
 //            e.compile(fsa)
 //        }
-//    }
+    }
  
-    def compile(Element e, IFileSystemAccess fsa) {
+//    def compile(Element e, IFileSystemAccess fsa) {
 //        fsa.generateFile(e.name+".txt", '''
 //        this is element «e.name»
 //        ''')
-    }
+//    }
  
-    def dispatch void compile(EObject m, IFileSystemAccess fsa) { }
+    //def dispatch void compile(EObject m, IFileSystemAccess fsa) { }
 	
 }

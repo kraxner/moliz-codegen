@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.modelexecution.xmof.examples.fsa/src" modelPluginID="org.modelexecution.xmof.examples.fsa"
+    modelName="Fsa" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
+    copyrightFields="false">
+  <foreignModel>../org.modelexecution.xmof.examples/fsa/fsa.ecore</foreignModel>
+  <genPackages prefix="Fsa" disposableProviderFactory="true" ecorePackage="fsa.ecore#/">
+    <genClasses ecoreClass="fsa.ecore#//FSA">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fsa.ecore#//FSA/states"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference fsa.ecore#//FSA/transitions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference fsa.ecore#//FSA/initialState"/>
+    </genClasses>
+    <genClasses ecoreClass="fsa.ecore#//State">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fsa.ecore#//State/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fsa.ecore#//State/accepting"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference fsa.ecore#//State/outgoingTransitions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference fsa.ecore#//State/incomingTransitions"/>
+    </genClasses>
+    <genClasses ecoreClass="fsa.ecore#//Transition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute fsa.ecore#//Transition/event"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference fsa.ecore#//Transition/fromState"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference fsa.ecore#//Transition/toState"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

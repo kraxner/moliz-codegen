@@ -10,7 +10,7 @@ public class XMOFGeneratorModule  extends
 
 	@Override
 	protected String getLanguageName() {
-		return "org.modelexecution.xmof";
+		return "fsa";
 	}
 	
 	@Override
