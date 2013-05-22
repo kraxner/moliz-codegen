@@ -9,6 +9,9 @@ Workflow {
 
 	bean = StandaloneSetup {
 		registerGeneratedEPackage = "fsa.FsaPackage"
+		registerGeneratedEPackage = "org.eclipse.emf.ecore.EcorePackage"
+		registerGeneratedEPackage = "org.modelexecution.xmof.Syntax.Classes.Kernel.KernelPackage"		
+		registerEcoreFile = "xmof.ecore"
 	}
 
 	component = DirectoryCleaner {
@@ -23,6 +26,8 @@ Workflow {
 		loadResource = {
 			slot = "model"
 		}
+		
+		validate = org.modelexecution.xmof.codegenerator.gen.NullValidator {}
 	}
 
 	component = org.eclipse.xtext.generator.GeneratorComponent {

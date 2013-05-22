@@ -11,11 +11,7 @@ class XMOFGenerator implements IGenerator{
 	
 
 	 override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-        for (EObject obj : resource.contents) {
-			switch (obj) {
-				FSA : obj.generate(fsa)
-			}
-		}
+	 	fsa.generateFile("lala", "hello there!");
     }
  
     def void generate(FSA m, IFileSystemAccess fsa) {
