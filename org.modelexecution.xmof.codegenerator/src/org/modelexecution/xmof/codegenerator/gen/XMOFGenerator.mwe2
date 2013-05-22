@@ -8,7 +8,7 @@ var modelPath = "model"
 Workflow {
 
 	bean = StandaloneSetup {
-		registerGeneratedEPackage = "org.modelexecution.xmof.codegenerator"
+		registerGeneratedEPackage = "fsa.FsaPackage"
 	}
 
 	component = DirectoryCleaner {
