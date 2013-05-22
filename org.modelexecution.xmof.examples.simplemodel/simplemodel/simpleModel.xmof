@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:fUML.Syntax.Actions.BasicActions="http://www.modelexecution.org/xmof/syntax/actions/basicactions" xmlns:fUML.Syntax.Actions.IntermediateActions="http://www.modelexecution.org/xmof/syntax/actions/intermediateactions" xmlns:fUML.Syntax.Activities.IntermediateActivities="http://www.modelexecution.org/xmof/syntax/activities/intermediateactivities" xmlns:fUML.Syntax.CommonBehaviors.BasicBehaviors="http://www.modelexecution.org/xmof/syntax/commonbehaviors/basicbehaviors" xmlns:kernel="http://www.modelexecution.org/xmof/syntax/classes/mykernel" name="SimpleModelConfiguration" nsURI="http://www.SimpleModel/configuration" nsPrefix="SimpleModelConf">
+  <eClassifiers xsi:type="kernel:BehavioredEClass" name="ActivityConfiguration">
+    <eSuperTypes href="SimpleModel.ecore#//Activity"/>
+    <eOperations xsi:type="kernel:BehavioredEOperation" name="init" method="//ActivityConfiguration/Initialize"/>
+    <ownedBehavior xsi:type="fUML.Syntax.Activities.IntermediateActivities:Activity" name="Initialize" specification="//ActivityConfiguration/init">
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="Value Specification Action">
+        <result name="result" outgoing="//ActivityConfiguration/Initialize/@edge.0" lowerBound="1"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="Value Specification Action">
+        <result name="result" outgoing="//ActivityConfiguration/Initialize/@edge.1" lowerBound="1"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.BasicActions:CallBehaviorAction" name="Call Behavior Action" behavior="//add">
+        <argument name="x" incoming="//ActivityConfiguration/Initialize/@edge.0" lowerBound="1"/>
+        <argument name="y" incoming="//ActivityConfiguration/Initialize/@edge.1" lowerBound="1"/>
+        <result name="result"/>
+      </node>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//ActivityConfiguration/Initialize/Value%20Specification%20Action/result" target="//ActivityConfiguration/Initialize/Call%20Behavior%20Action/x"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//ActivityConfiguration/Initialize/Value%20Specification%20Action.1/result" target="//ActivityConfiguration/Initialize/Call%20Behavior%20Action/y"/>
+    </ownedBehavior>
+  </eClassifiers>
+  <eClassifiers xsi:type="kernel:BehavioredEClass" name="ActionConfiguration">
+    <eSuperTypes href="SimpleModel.ecore#//Action"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="add">
+    <ownedParameter name="x" lowerBound="1"/>
+    <ownedParameter name="y" lowerBound="1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="subtract">
+    <ownedParameter name="x" lowerBound="1"/>
+    <ownedParameter name="y" lowerBound="1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="multiply">
+    <ownedParameter name="x" lowerBound="1"/>
+    <ownedParameter name="y" lowerBound="1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="divide">
+    <ownedParameter name="x" lowerBound="1"/>
+    <ownedParameter name="y" lowerBound="1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="smaller">
+    <ownedParameter name="x" lowerBound="1"/>
+    <ownedParameter name="y" lowerBound="1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="greater">
+    <ownedParameter name="x" lowerBound="1"/>
+    <ownedParameter name="y" lowerBound="1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="listget">
+    <ownedParameter name="list" lowerBound="1" upperBound="-1"/>
+    <ownedParameter name="index" lowerBound="1"/>
+    <ownedParameter name="result" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="listsize">
+    <ownedParameter name="list" upperBound="-1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="listindexof">
+    <ownedParameter name="list" upperBound="-1"/>
+    <ownedParameter name="object" lowerBound="1"/>
+    <ownedParameter name="result" direction="OUT"/>
+  </eClassifiers>
+</ecore:EPackage>

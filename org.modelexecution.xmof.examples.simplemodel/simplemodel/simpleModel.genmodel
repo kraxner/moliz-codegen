@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.modelexecution.xmof.examples.simplemodel/src"
+    modelPluginID="org.modelexecution.xmof.examples.simplemodel" modelName="SimpleModel"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false">
+  <foreignModel>simpleModel.ecore</foreignModel>
+  <genPackages prefix="SimpleModel" disposableProviderFactory="true" ecorePackage="simpleModel.ecore#/">
+    <genClasses ecoreClass="simpleModel.ecore#//Activity">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simpleModel.ecore#//Activity/contains"/>
+    </genClasses>
+    <genClasses ecoreClass="simpleModel.ecore#//Action"/>
+  </genPackages>
+</genmodel:GenModel>
