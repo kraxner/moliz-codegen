@@ -1,14 +1,14 @@
-module org.modelexecution.xmof.simplemodel.codegenerator.SimpleModelGenerator
+module org.modelexecution.xmof.codegenerator.gen.XMOFGeneratorIml
 
 import org.eclipse.emf.mwe.utils.*
 
-var targetDir = "src-gen"
-var modelPath = "model"
+var targetDir = "src-gen-iml"
+var modelPath = "modelIml"
 
 Workflow {
 
 	bean = StandaloneSetup {
-		registerGeneratedEPackage = "simpleModel.SimpleModelPackage"
+		registerGeneratedEPackage = "impModLang.ImpModLangPackage"
 		registerGeneratedEPackage = "org.eclipse.emf.ecore.EcorePackage"
 		registerGeneratedEPackage = "org.modelexecution.xmof.Syntax.Classes.Kernel.KernelPackage"		
 		registerEcoreFile = "xmof.ecore"
@@ -18,18 +18,20 @@ Workflow {
 		directory = targetDir
 	}
 
-	component = org.modelexecution.xmof.simplemodel.codegenerator.SimpleModelGeneratorSupport {}
+	component = org.modelexecution.xmof.codegenerator.gen.XMOFGeneratorSupport {}
 
 	component = org.eclipse.xtext.mwe.Reader {
 		path = modelPath
-		register = org.modelexecution.xmof.simplemodel.codegenerator.SimpleModelGeneratorSetup {}
+		register = org.modelexecution.xmof.codegenerator.gen.XMOFGeneratorSetup {}
 		loadResource = {
 			slot = "model"
 		}
+		
+		validate = org.modelexecution.xmof.codegenerator.gen.NullValidator {}
 	}
 
 	component = org.eclipse.xtext.generator.GeneratorComponent {
-		register = org.modelexecution.xmof.simplemodel.codegenerator.SimpleModelGeneratorSetup {}
+		register = org.modelexecution.xmof.codegenerator.gen.XMOFGeneratorSetup {}
 		slot = 'model'
 		outlet = {
 			path = targetDir

@@ -6,21 +6,42 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.emf.ecore.EObject
 import fsa.FSA
 import fsa.State
+import org.eclipse.emf.ecore.EClass
+import org.modelexecution.xmof.Syntax.Classes.Kernel.MainEClass
+import org.eclipse.emf.ecore.EPackage
 
 class XMOFGenerator implements IGenerator{
 	
 
 	 override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-	 	fsa.generateFile("lala", "hello there!");
+	 	for (EObject obj : resource.contents) {
+	 		switch (obj) {
+	 			EPackage : generate(obj, fsa) 				
+	 			
+	 		}
+	 	}
+	 	
+//	 	fsa.generateFile("lala", "hello there!");
+//	 	for (EObject obj : resource.contents) {
+//			switch (obj) {
+//				FileDefinitionSet : obj.generateFiles(fsa)
+//			}
+//		}
     }
  
-    def void generate(FSA m, IFileSystemAccess fsa) {
+    def void generate(EPackage m, IFileSystemAccess fsa) {
     	
-    	
-    	for (State s : m.getStates()) {
-    		fsa.generateFile("asfd", "asdf");
-    		
+    	for (EObject o : m.eContents) {
+    		switch (o) {
+    			MainEClass : fsa.generateFile("Eclass", "asdf")
+    		}
     	}
+    	
+    	
+//    	for (State s : m.getStates()) {
+//    		fsa.generateFile("asfd", "asdf");
+//    		
+//    	}
 //        for (e : m) {
 //            e.compile(fsa)
 //        }

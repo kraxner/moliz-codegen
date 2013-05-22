@@ -1,22 +1,40 @@
 package org.modelexecution.xmof.codegenerator.gen;
 
-import fsa.FSA;
-import fsa.State;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import org.modelexecution.xmof.Syntax.Classes.Kernel.MainEClass;
 
 @SuppressWarnings("all")
 public class XMOFGenerator implements IGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
-    fsa.generateFile("lala", "hello there!");
+    EList<EObject> _contents = resource.getContents();
+    for (final EObject obj : _contents) {
+      boolean _matched = false;
+      if (!_matched) {
+        if (obj instanceof EPackage) {
+          final EPackage _ePackage = (EPackage)obj;
+          _matched=true;
+          this.generate(_ePackage, fsa);
+        }
+      }
+    }
   }
   
-  public void generate(final FSA m, final IFileSystemAccess fsa) {
-    EList<State> _states = m.getStates();
-    for (final State s : _states) {
-      fsa.generateFile("asfd", "asdf");
+  public void generate(final EPackage m, final IFileSystemAccess fsa) {
+    EList<EObject> _eContents = m.eContents();
+    for (final EObject o : _eContents) {
+      boolean _matched = false;
+      if (!_matched) {
+        if (o instanceof MainEClass) {
+          final MainEClass _mainEClass = (MainEClass)o;
+          _matched=true;
+          fsa.generateFile("Eclass", "asdf");
+        }
+      }
     }
   }
 }

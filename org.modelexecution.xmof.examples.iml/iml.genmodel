@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.modelexecution.xmof.examples.iml/src" modelPluginID="org.modelexecution.xmof.examples.iml"
+    modelName="Iml" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
+    copyrightFields="false">
+  <foreignModel>ImpModLang.ecore</foreignModel>
+  <genPackages prefix="ImpModLang" disposableProviderFactory="true" ecorePackage="ImpModLang.ecore#/">
+    <genClasses ecoreClass="ImpModLang.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ImpModLang.ecore#//Model/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ImpModLang.ecore#//Model/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="ImpModLang.ecore#//Assignment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ImpModLang.ecore#//Assignment/mark"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ImpModLang.ecore#//Assignment/writeTo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ImpModLang.ecore#//Assignment/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="ImpModLang.ecore#//Mark">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ImpModLang.ecore#//Mark/name"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ImpModLang.ecore#//Mark/assignment"/>
+    </genClasses>
+    <genClasses ecoreClass="ImpModLang.ecore#//Goto">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ImpModLang.ecore#//Goto/gotoMark"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ImpModLang.ecore#//Goto/cond"/>
+    </genClasses>
+    <genClasses ecoreClass="ImpModLang.ecore#//Condition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ImpModLang.ecore#//Condition/par1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ImpModLang.ecore#//Condition/comp"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ImpModLang.ecore#//Condition/par2"/>
+    </genClasses>
+    <genClasses ecoreClass="ImpModLang.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ImpModLang.ecore#//Variable/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ImpModLang.ecore#//Variable/value"/>
+    </genClasses>
+    <genClasses ecoreClass="ImpModLang.ecore#//Expression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ImpModLang.ecore#//Expression/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ImpModLang.ecore#//Expression/calc"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ImpModLang.ecore#//Expression/y"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ImpModLang.ecore#//Statement">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ImpModLang.ecore#//Statement/model"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
