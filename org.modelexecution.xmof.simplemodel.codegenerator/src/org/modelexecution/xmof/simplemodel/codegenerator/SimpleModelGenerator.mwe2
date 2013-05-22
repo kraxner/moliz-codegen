@@ -1,0 +1,36 @@
+module org.modelexecution.xmof.simplemodel.codegenerator.SimpleModelGenerator
+
+import org.eclipse.emf.mwe.utils.*
+
+var targetDir = "src-gen"
+var modelPath = "model"
+
+Workflow {
+
+	bean = StandaloneSetup {
+		registerGeneratedEPackage = "simpleModel.SimpleModelPackage"
+	}
+
+	component = DirectoryCleaner {
+		directory = targetDir
+	}
+
+	component = org.modelexecution.xmof.simplemodel.codegenerator.SimpleModelGeneratorSupport {}
+
+	component = org.eclipse.xtext.mwe.Reader {
+		path = modelPath
+		register = org.modelexecution.xmof.simplemodel.codegenerator.SimpleModelGeneratorSetup {}
+		loadResource = {
+			slot = "model"
+		}
+	}
+
+	component = org.eclipse.xtext.generator.GeneratorComponent {
+		register = org.modelexecution.xmof.simplemodel.codegenerator.SimpleModelGeneratorSetup {}
+		slot = 'model'
+		outlet = {
+			path = targetDir
+		}
+	}
+	
+}
