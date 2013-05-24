@@ -12,5 +12,6 @@ Require-Bundle:
  org.eclipse.emf.mwe2.launch;bundle-version="2.3.0",
  org.apache.log4j;bundle-version="1.2.15",
  org.apache.commons.logging;bundle-version="1.0.4",
- org.modelexecution.xmof;bundle-version="1.0.0"
+ org.modelexecution.xmof;bundle-version="1.0.0",
+ org.modelexecution.xmof.examples.iml;bundle-version="1.0.0"
 
