@@ -8,7 +8,7 @@ var modelPath = "model"
 Workflow {
 
 	bean = StandaloneSetup {
-		registerGeneratedEPackage = "impModLang.ImpModLangPackage"
+		registerGeneratedEPackage = "impModLangConfiguration.impModLangConfigurationPackage"
 		registerGeneratedEPackage = "org.eclipse.emf.ecore.EcorePackage"
 		registerGeneratedEPackage = "org.modelexecution.xmof.Syntax.Classes.Kernel.KernelPackage"		
 		registerEcoreFile = "xmof.ecore"

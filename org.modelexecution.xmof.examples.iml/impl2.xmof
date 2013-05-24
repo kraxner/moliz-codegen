@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:fUML.Syntax.Actions.BasicActions="http://www.modelexecution.org/xmof/syntax/actions/basicactions" xmlns:fUML.Syntax.Actions.CompleteActions="http://www.modelexecution.org/xmof/syntax/actions/completeactions" xmlns:fUML.Syntax.Actions.IntermediateActions="http://www.modelexecution.org/xmof/syntax/actions/intermediateactions" xmlns:fUML.Syntax.Activities.ExtraStructuredActivities="http://www.modelexecution.org/xmof/syntax/activities/extrastructuredactivities" xmlns:fUML.Syntax.Activities.IntermediateActivities="http://www.modelexecution.org/xmof/syntax/activities/intermediateactivities" xmlns:fUML.Syntax.CommonBehaviors.BasicBehaviors="http://www.modelexecution.org/xmof/syntax/commonbehaviors/basicbehaviors" xmlns:kernel="http://www.modelexecution.org/xmof/syntax/classes/mykernel" name="impModLangConfiguration" nsURI="http://www.ImpModLang/configuration" nsPrefix="impModLangConf">
+  <eClassifiers xsi:type="kernel:MainEClass" name="ModelConfiguration">
+    <eSuperTypes href="ImpModLang.ecore#//Model"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="statementPointer">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>    
+  </eClassifiers>
+  <eClassifiers xsi:type="kernel:BehavioredEClass" name="AssignmentConfiguration">
+    <eSuperTypes href="ImpModLang.ecore#//Assignment"/>
+    <eOperations xsi:type="kernel:BehavioredEOperation" name="assignmentExecution" />
+  </eClassifiers>
+  <eClassifiers xsi:type="kernel:BehavioredEClass" name="MarkConfiguration">
+    <eSuperTypes href="ImpModLang.ecore#//Mark"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="kernel:BehavioredEClass" name="GotoConfiguration">
+    <eSuperTypes href="ImpModLang.ecore#//Goto"/>
+    <eOperations xsi:type="kernel:BehavioredEOperation" name="getStatementIndex">
+    </eOperations>
+    </eClassifiers>
+  <eClassifiers xsi:type="kernel:BehavioredEClass" name="ConditionConfiguration">
+    <eSuperTypes href="ImpModLang.ecore#//Condition"/>
+    <eOperations xsi:type="kernel:BehavioredEOperation" name="evaluateCondition">
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="kernel:BehavioredEClass" name="VariableConfiguration">
+    <eSuperTypes href="ImpModLang.ecore#//Variable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentValue">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="kernel:BehavioredEClass" name="ExpressionConfiguration">
+    <eSuperTypes href="ImpModLang.ecore#//Expression"/>
+  </eClassifiers>
+  </ecore:EPackage>

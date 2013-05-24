@@ -13,6 +13,10 @@ import impModLang.Model;
 import impModLang.Statement;
 import impModLang.Variable;
 
+import impModLangConfiguration.impModLangConfigurationPackage;
+
+import impModLangConfiguration.impl.impModLangConfigurationPackageImpl;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -129,11 +133,16 @@ public class ImpModLangPackageImpl extends EPackageImpl implements ImpModLangPac
 
 		isInited = true;
 
+		// Obtain or create and register interdependencies
+		impModLangConfigurationPackageImpl theimpModLangConfigurationPackage = (impModLangConfigurationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(impModLangConfigurationPackage.eNS_URI) instanceof impModLangConfigurationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(impModLangConfigurationPackage.eNS_URI) : impModLangConfigurationPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theImpModLangPackage.createPackageContents();
+		theimpModLangConfigurationPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theImpModLangPackage.initializePackageContents();
+		theimpModLangConfigurationPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theImpModLangPackage.freeze();
