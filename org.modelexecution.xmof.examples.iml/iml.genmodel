@@ -3,6 +3,18 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.modelexecution.xmof.examples.iml/src" modelPluginID="org.modelexecution.xmof.examples.iml"
     modelName="Iml" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
     copyrightFields="false">
+    <!-- 1. Add foreignModel
+    2. genPackages entry kopieren
+    3. genFeatures entfernen
+    4. ecorePackage="-> ecore durch xmof ersetzen 
+    5. genFeatures entfernen
+    6. kopie vom xmof file erstellen
+    7. im xmof file alles was nicht ecore oder subklasse von ecore ist entfernen
+    8. classified behavior entfernen
+    9. bei operations gibts outparameter (eoperations parameter)
+    10. etype der operation auf correcten type setzen
+    11. directred parameter hat in fuml keinen typen
+    -->
   <foreignModel>ImpModLang.ecore</foreignModel>
   <genPackages prefix="ImpModLang" disposableProviderFactory="true" ecorePackage="ImpModLang.ecore#/">
     <genClasses ecoreClass="ImpModLang.ecore#//Model">
