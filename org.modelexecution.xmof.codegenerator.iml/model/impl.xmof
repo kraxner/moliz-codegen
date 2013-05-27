@@ -284,7 +284,9 @@
   <eClassifiers xsi:type="kernel:BehavioredEClass" name="GotoConfiguration">
     <eSuperTypes href="ImpModLang.ecore#//Goto"/>
     <eOperations xsi:type="kernel:BehavioredEOperation" name="getStatementIndex" method="//GotoConfiguration/getStatementIndex.1">
-      <eParameters xsi:type="kernel:DirectedParameter" name="index" direction="OUT"/>
+      <eParameters xsi:type="kernel:DirectedParameter" name="index" direction="OUT">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eParameters>
     </eOperations>
     <ownedBehavior xsi:type="fUML.Syntax.Activities.IntermediateActivities:Activity" name="getStatementIndex" specification="//GotoConfiguration/getStatementIndex">
       <ownedParameter name="index" direction="OUT"/>
@@ -359,7 +361,9 @@
   <eClassifiers xsi:type="kernel:BehavioredEClass" name="ConditionConfiguration">
     <eSuperTypes href="ImpModLang.ecore#//Condition"/>
     <eOperations xsi:type="kernel:BehavioredEOperation" name="evaluateCondition" method="//ConditionConfiguration/evaluateCondition.1">
-      <eParameters xsi:type="kernel:DirectedParameter" name="fulfilled" direction="OUT"/>
+      <eParameters xsi:type="kernel:DirectedParameter" name="fulfilled" direction="OUT">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eParameters>
     </eOperations>
     <ownedBehavior xsi:type="fUML.Syntax.Activities.IntermediateActivities:Activity" name="evaluateCondition" specification="//ConditionConfiguration/evaluateCondition">
       <ownedParameter name="fulfilled" direction="OUT"/>

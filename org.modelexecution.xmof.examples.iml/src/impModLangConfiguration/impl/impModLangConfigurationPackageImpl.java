@@ -321,11 +321,11 @@ public class impModLangConfigurationPackageImpl extends EPackageImpl implements 
 
 		initEClass(gotoConfigurationEClass, GotoConfiguration.class, "GotoConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(gotoConfigurationEClass, null, "getStatementIndex", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(gotoConfigurationEClass, ecorePackage.getEInt(), "getStatementIndex", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(conditionConfigurationEClass, ConditionConfiguration.class, "ConditionConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		addEOperation(conditionConfigurationEClass, null, "evaluateCondition", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEOperation(conditionConfigurationEClass, ecorePackage.getEBoolean(), "evaluateCondition", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(variableConfigurationEClass, VariableConfiguration.class, "VariableConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVariableConfiguration_CurrentValue(), ecorePackage.getEInt(), "currentValue", null, 0, 1, VariableConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

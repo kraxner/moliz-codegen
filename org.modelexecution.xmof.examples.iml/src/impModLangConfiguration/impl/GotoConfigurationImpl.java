@@ -43,7 +43,7 @@ public class GotoConfigurationImpl extends GotoImpl implements GotoConfiguration
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void getStatementIndex() {
+	public int getStatementIndex() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

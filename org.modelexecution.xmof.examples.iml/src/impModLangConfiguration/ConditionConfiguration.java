@@ -21,6 +21,6 @@ public interface ConditionConfiguration extends Condition {
 	 * @model
 	 * @generated
 	 */
-	void evaluateCondition();
+	boolean evaluateCondition();
 
 } // ConditionConfiguration

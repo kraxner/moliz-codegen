@@ -6,7 +6,9 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import org.modelexecution.xmof.Syntax.Activities.IntermediateActivities.Activity;
 import org.modelexecution.xmof.Syntax.Classes.Kernel.MainEClass;
+import org.modelexecution.xmof.Syntax.CommonBehaviors.BasicBehaviors.Behavior;
 
 @SuppressWarnings("all")
 public class XMOFGenerator implements IGenerator {
@@ -27,13 +29,19 @@ public class XMOFGenerator implements IGenerator {
   public void generate(final EPackage m, final IFileSystemAccess fsa) {
     EList<EObject> _eContents = m.eContents();
     for (final EObject o : _eContents) {
-      boolean _matched = false;
-      if (!_matched) {
-        if (o instanceof MainEClass) {
-          final MainEClass _mainEClass = (MainEClass)o;
-          _matched=true;
-          fsa.generateFile("Eclass", "asdf");
+      {
+        boolean _matched = false;
+        if (!_matched) {
+          if (o instanceof MainEClass) {
+            final MainEClass _mainEClass = (MainEClass)o;
+            _matched=true;
+            fsa.generateFile("Eclass", "asdf");
+          }
         }
+        MainEClass main = ((MainEClass) o);
+        Behavior behavior = main.getClassifierBehavior();
+        Activity activity = ((Activity) behavior);
+        String name = activity.getName();
       }
     }
   }

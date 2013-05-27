@@ -43,7 +43,7 @@ public class ConditionConfigurationImpl extends ConditionImpl implements Conditi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void evaluateCondition() {
+	public boolean evaluateCondition() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
