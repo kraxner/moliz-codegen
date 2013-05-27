@@ -21,6 +21,6 @@ public interface GotoConfiguration extends Goto {
 	 * @model kind="operation"
 	 * @generated
 	 */
-	void getStatementIndex();
+	int getStatementIndex();
 
 } // GotoConfiguration

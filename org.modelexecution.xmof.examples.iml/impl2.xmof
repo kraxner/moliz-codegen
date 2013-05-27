@@ -15,12 +15,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="kernel:BehavioredEClass" name="GotoConfiguration">
     <eSuperTypes href="ImpModLang.ecore#//Goto"/>
-    <eOperations xsi:type="kernel:BehavioredEOperation" name="getStatementIndex">
+    <eOperations xsi:type="kernel:BehavioredEOperation" name="getStatementIndex" ecore:eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
     </eOperations>
     </eClassifiers>
   <eClassifiers xsi:type="kernel:BehavioredEClass" name="ConditionConfiguration">
     <eSuperTypes href="ImpModLang.ecore#//Condition"/>
-    <eOperations xsi:type="kernel:BehavioredEOperation" name="evaluateCondition">
+    <eOperations xsi:type="kernel:BehavioredEOperation" name="evaluateCondition" ecore:eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="kernel:BehavioredEClass" name="VariableConfiguration">

@@ -460,4 +460,466 @@
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
   </eClassifiers>
+  <eSubpackages name="fsaConfiguration" nsURI="http://fsa/1.0/configuration" nsPrefix="fsaConf">
+    <eClassifiers xsi:type="kernel:MainEClass" name="FSAConfiguration" classifierBehavior="//fsaConfiguration/FSAConfiguration/Main">
+      <eSuperTypes href="fsa.ecore#//FSA"/>
+      <eOperations xsi:type="kernel:BehavioredEOperation" name="evaluateInput" method="//fsaConfiguration/FSAConfiguration/evaluateInput.1">
+        <eParameters xsi:type="kernel:DirectedParameter" name="valid" direction="OUT"/>
+      </eOperations>
+      <eOperations xsi:type="kernel:BehavioredEOperation" name="getNextEvent" method="//fsaConfiguration/FSAConfiguration/getNextEvent.1">
+        <eParameters xsi:type="kernel:DirectedParameter" name="event" direction="OUT"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="init" lowerBound="1" eType="//fsaConfiguration/Initialization" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="currentState" lowerBound="1" eType="//fsaConfiguration/StateConfiguration"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="nextEvent">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputSize">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputAccepted" defaultValueLiteral="false">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </eStructuralFeatures>
+      <ownedBehavior xsi:type="fUML.Syntax.Activities.IntermediateActivities:Activity" name="Main">
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:AddStructuralFeatureValueAction" name="set nextEvent" structuralFeature="//fsaConfiguration/FSAConfiguration/nextEvent" replaceAll="true">
+          <object name="object" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.18" lowerBound="1"/>
+          <value name="value" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.17" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/Main/@edge.0" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="specify 0">
+          <value xsi:type="kernel:LiteralInteger"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/Main/@edge.17" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadSelfAction" name="read self FSAConfiguration">
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/Main/@edge.10" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ForkNode" outgoing="//fsaConfiguration/FSAConfiguration/Main/@edge.1 //fsaConfiguration/FSAConfiguration/Main/@edge.3" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.0"/>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="read init" structuralFeature="//fsaConfiguration/FSAConfiguration/init">
+          <object name="object" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.1" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/Main/@edge.2" upperBound="0"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="read events" structuralFeature="//fsaConfiguration/Initialization/events">
+          <object name="object" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.2" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/Main/@edge.8" upperBound="0"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.BasicActions:CallBehaviorAction" name="call ListSize" behavior="//fsaConfiguration/listsize">
+          <argument name="list" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.8" upperBound="-1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/Main/@edge.9"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ForkNode" outgoing="//fsaConfiguration/FSAConfiguration/Main/@edge.5 //fsaConfiguration/FSAConfiguration/Main/@edge.6" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.4"/>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:AddStructuralFeatureValueAction" name="set inputSize" structuralFeature="//fsaConfiguration/FSAConfiguration/inputSize" replaceAll="true">
+          <object name="object" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.3" lowerBound="1"/>
+          <value name="value" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.9" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/Main/@edge.4" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="read initialState">
+          <structuralFeature xsi:type="ecore:EReference" href="fsa.ecore#//FSA/initialState"/>
+          <object name="object" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.5" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/Main/@edge.7" upperBound="0"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:AddStructuralFeatureValueAction" name="setCurrentState" structuralFeature="//fsaConfiguration/FSAConfiguration/currentState" replaceAll="true">
+          <object name="object" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.6" lowerBound="1"/>
+          <value name="value" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.7" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/Main/@edge.14" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.BasicActions:CallOperationAction" name="call FSAConfiguration::evaluateInput" operation="//fsaConfiguration/FSAConfiguration/evaluateInput">
+          <result name="valid" outgoing="//fsaConfiguration/FSAConfiguration/Main/@edge.13"/>
+          <target name="target" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.15" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="specify false">
+          <value xsi:type="kernel:LiteralBoolean"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/Main/@edge.12" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:AddStructuralFeatureValueAction" name="set inputAccepted" structuralFeature="//fsaConfiguration/FSAConfiguration/inputAccepted" replaceAll="true">
+          <object name="object" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.11" lowerBound="1"/>
+          <value name="value" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.12" lowerBound="1"/>
+          <result name="result" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ForkNode" outgoing="//fsaConfiguration/FSAConfiguration/Main/@edge.11 //fsaConfiguration/FSAConfiguration/Main/@edge.18" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.10"/>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:AddStructuralFeatureValueAction" name="set inputAccepted" structuralFeature="//fsaConfiguration/FSAConfiguration/inputAccepted" replaceAll="true">
+          <object name="object" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.16" lowerBound="1"/>
+          <value name="value" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.13" lowerBound="1"/>
+          <result name="result" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ForkNode" outgoing="//fsaConfiguration/FSAConfiguration/Main/@edge.15 //fsaConfiguration/FSAConfiguration/Main/@edge.16" incoming="//fsaConfiguration/FSAConfiguration/Main/@edge.14"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/set%20nextEvent/result" target="//fsaConfiguration/FSAConfiguration/Main/@node.3"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/@node.3" target="//fsaConfiguration/FSAConfiguration/Main/read%20init/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/read%20init/result" target="//fsaConfiguration/FSAConfiguration/Main/read%20events/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/@node.3" target="//fsaConfiguration/FSAConfiguration/Main/set%20inputSize/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/set%20inputSize/result" target="//fsaConfiguration/FSAConfiguration/Main/@node.7"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/@node.7" target="//fsaConfiguration/FSAConfiguration/Main/read%20initialState/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/@node.7" target="//fsaConfiguration/FSAConfiguration/Main/setCurrentState/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/read%20initialState/result" target="//fsaConfiguration/FSAConfiguration/Main/setCurrentState/value"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/read%20events/result" target="//fsaConfiguration/FSAConfiguration/Main/call%20ListSize/list"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/call%20ListSize/result" target="//fsaConfiguration/FSAConfiguration/Main/set%20inputSize/value"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/read%20self%20FSAConfiguration/result" target="//fsaConfiguration/FSAConfiguration/Main/@node.14"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/@node.14" target="//fsaConfiguration/FSAConfiguration/Main/set%20inputAccepted/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/specify%20false/result" target="//fsaConfiguration/FSAConfiguration/Main/set%20inputAccepted/value"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/call%20FSAConfiguration%3A%3AevaluateInput/valid" target="//fsaConfiguration/FSAConfiguration/Main/set%20inputAccepted.1/value"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/setCurrentState/result" target="//fsaConfiguration/FSAConfiguration/Main/@node.16"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/@node.16" target="//fsaConfiguration/FSAConfiguration/Main/call%20FSAConfiguration%3A%3AevaluateInput/target"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/@node.16" target="//fsaConfiguration/FSAConfiguration/Main/set%20inputAccepted.1/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/specify%200/result" target="//fsaConfiguration/FSAConfiguration/Main/set%20nextEvent/value"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/Main/@node.14" target="//fsaConfiguration/FSAConfiguration/Main/set%20nextEvent/object"/>
+      </ownedBehavior>
+      <ownedBehavior xsi:type="fUML.Syntax.Activities.IntermediateActivities:Activity" name="getNextEvent" specification="//fsaConfiguration/FSAConfiguration/getNextEvent">
+        <ownedParameter name="event" direction="OUT"/>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ActivityParameterNode" name="event" incoming="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.9" parameter="//fsaConfiguration/FSAConfiguration/getNextEvent.1/event"/>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadSelfAction" name="read self FSAConf">
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.0" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ForkNode" outgoing="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.1 //fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.10" incoming="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.0"/>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="read nextEvent" outgoing="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.13" structuralFeature="//fsaConfiguration/FSAConfiguration/nextEvent">
+          <object name="object" incoming="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.1" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.2" upperBound="0"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="specify 1" incoming="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.13">
+          <value xsi:type="kernel:LiteralInteger" value="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.3" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.BasicActions:CallBehaviorAction" name="call add" outgoing="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.11" behavior="//fsaConfiguration/add">
+          <argument name="x" incoming="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.3" lowerBound="1"/>
+          <argument name="y" incoming="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.2" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.4"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ForkNode" outgoing="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.5 //fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.12" incoming="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.4"/>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:AddStructuralFeatureValueAction" name="set nextEvent" incoming="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.11" structuralFeature="//fsaConfiguration/FSAConfiguration/nextEvent" replaceAll="true">
+          <object name="object" incoming="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.10" lowerBound="1"/>
+          <value name="value" incoming="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.5" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.6" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="read init" structuralFeature="//fsaConfiguration/FSAConfiguration/init">
+          <object name="object" incoming="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.6" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.7" upperBound="0"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="read events" structuralFeature="//fsaConfiguration/Initialization/events">
+          <object name="object" incoming="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.7" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.8" upperBound="0"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.BasicActions:CallBehaviorAction" name="call ListGet" behavior="//fsaConfiguration/listget">
+          <argument name="list" incoming="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.8" lowerBound="1" upperBound="-1"/>
+          <argument name="index" incoming="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.12" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@edge.9"/>
+        </node>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/getNextEvent.1/read%20self%20FSAConf/result" target="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@node.2"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@node.2" target="//fsaConfiguration/FSAConfiguration/getNextEvent.1/read%20nextEvent/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/getNextEvent.1/read%20nextEvent/result" target="//fsaConfiguration/FSAConfiguration/getNextEvent.1/call%20add/y"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/getNextEvent.1/specify%201/result" target="//fsaConfiguration/FSAConfiguration/getNextEvent.1/call%20add/x"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/getNextEvent.1/call%20add/result" target="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@node.6"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@node.6" target="//fsaConfiguration/FSAConfiguration/getNextEvent.1/set%20nextEvent/value"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/getNextEvent.1/set%20nextEvent/result" target="//fsaConfiguration/FSAConfiguration/getNextEvent.1/read%20init/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/getNextEvent.1/read%20init/result" target="//fsaConfiguration/FSAConfiguration/getNextEvent.1/read%20events/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/getNextEvent.1/read%20events/result" target="//fsaConfiguration/FSAConfiguration/getNextEvent.1/call%20ListGet/list"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/getNextEvent.1/call%20ListGet/result" target="//fsaConfiguration/FSAConfiguration/getNextEvent.1/event.1"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@node.2" target="//fsaConfiguration/FSAConfiguration/getNextEvent.1/set%20nextEvent/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//fsaConfiguration/FSAConfiguration/getNextEvent.1/call%20add" target="//fsaConfiguration/FSAConfiguration/getNextEvent.1/set%20nextEvent"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/getNextEvent.1/@node.6" target="//fsaConfiguration/FSAConfiguration/getNextEvent.1/call%20ListGet/index"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//fsaConfiguration/FSAConfiguration/getNextEvent.1/read%20nextEvent" target="//fsaConfiguration/FSAConfiguration/getNextEvent.1/specify%201"/>
+      </ownedBehavior>
+      <ownedBehavior xsi:type="fUML.Syntax.Activities.IntermediateActivities:Activity" name="evaluateInput" specification="//fsaConfiguration/FSAConfiguration/evaluateInput">
+        <ownedParameter name="valid" direction="OUT"/>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ActivityParameterNode" name="valid" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.28 //fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.29" parameter="//fsaConfiguration/FSAConfiguration/evaluateInput.1/valid"/>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:InitialNode" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.0"/>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:MergeNode" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.1" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.0 //fsaConfiguration/FSAConfiguration/evaluateInput.1/notLastEvent"/>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadSelfAction" name="read self FSAConf" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.1">
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.2" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ForkNode" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.3 //fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.4 //fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.5" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.2"/>
+        <node xsi:type="fUML.Syntax.Actions.BasicActions:CallOperationAction" name="call getNextEvent" operation="//fsaConfiguration/FSAConfiguration/getNextEvent">
+          <result name="event" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.6"/>
+          <target name="target" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.3" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="read currentState" structuralFeature="//fsaConfiguration/FSAConfiguration/currentState">
+          <object name="object" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.4" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.7" upperBound="0"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.BasicActions:CallOperationAction" name="call getProcessingTransition" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.11" operation="//fsaConfiguration/StateConfiguration/getProcessingTransition">
+          <argument name="event" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.6" lowerBound="1"/>
+          <result name="transition" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.8"/>
+          <target name="target" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.7" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="specify 0" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.11">
+          <value xsi:type="kernel:LiteralInteger"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.10" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ForkNode" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.9 //fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.30" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.8"/>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:TestIdentityAction" name="equals 0">
+          <second name="second" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.10" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.12" lowerBound="1"/>
+          <first name="first" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.31" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:DecisionNode" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/processingTransitionIsNull //fsaConfiguration/FSAConfiguration/evaluateInput.1/processingTransitionsIsNotNull" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.12"/>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="specify false" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.15">
+          <value xsi:type="kernel:LiteralBoolean"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.28" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:MergeNode" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.15" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/processingTransitionIsNull //fsaConfiguration/FSAConfiguration/evaluateInput.1/notAccepting"/>
+        <node xsi:type="fUML.Syntax.Actions.BasicActions:CallOperationAction" name="call process" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/processingTransitionsIsNotNull" operation="//fsaConfiguration/TransitionConfiguration/process">
+          <result name="state" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.16"/>
+          <target name="target" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.9" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ForkNode" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.17" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.16"/>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:AddStructuralFeatureValueAction" name="set currentState" structuralFeature="//fsaConfiguration/FSAConfiguration/currentState" replaceAll="true">
+          <object name="object" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.5" lowerBound="1"/>
+          <value name="value" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.17" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.18" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ForkNode" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.19 //fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.20" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.18"/>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="read inputSize" structuralFeature="//fsaConfiguration/FSAConfiguration/inputSize">
+          <object name="object" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.19" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.21" upperBound="0"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="read nextEvent" structuralFeature="//fsaConfiguration/FSAConfiguration/nextEvent">
+          <object name="object" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.20" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.22" upperBound="0"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:TestIdentityAction" name="equals input end">
+          <second name="second" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.21" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.23" lowerBound="1"/>
+          <first name="first" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.22" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:DecisionNode" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/notLastEvent //fsaConfiguration/FSAConfiguration/evaluateInput.1/lastEvent" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.23"/>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="read accepting">
+          <structuralFeature xsi:type="ecore:EAttribute" href="fsa.ecore#//State/accepting"/>
+          <object name="object" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.33" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.25" upperBound="0"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:DecisionNode" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/accepting //fsaConfiguration/FSAConfiguration/evaluateInput.1/notAccepting" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.25"/>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="specify true" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/accepting">
+          <value xsi:type="kernel:LiteralBoolean" value="true"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.29" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.BasicActions:CallBehaviorAction" name="call ListSize" behavior="//fsaConfiguration/listsize">
+          <argument name="list" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.30" upperBound="-1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.31"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadSelfAction" name="read self FSAConf" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/lastEvent">
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.32" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="read currentState" structuralFeature="//fsaConfiguration/FSAConfiguration/currentState">
+          <object name="object" incoming="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.32" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@edge.33" upperBound="0"/>
+        </node>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.1" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.2"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.2" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/read%20self%20FSAConf"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/read%20self%20FSAConf/result" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.4"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.4" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/call%20getNextEvent/target"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.4" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/read%20currentState/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.4" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/set%20currentState/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/call%20getNextEvent/event" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/call%20getProcessingTransition/event"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/read%20currentState/result" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/call%20getProcessingTransition/target"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/call%20getProcessingTransition/transition" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.9"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.9" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/call%20process/target"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/specify%200/result" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/equals%200/second"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/call%20getProcessingTransition" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/specify%200"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/equals%200/result" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.11"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" name="processingTransitionIsNull" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.11" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.13">
+          <guard xsi:type="kernel:LiteralBoolean" value="true"/>
+        </edge>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" name="processingTransitionsIsNotNull" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.11" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/call%20process">
+          <guard xsi:type="kernel:LiteralBoolean"/>
+        </edge>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.13" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/specify%20false"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/call%20process/state" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.15"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.15" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/set%20currentState/value"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/set%20currentState/result" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.17"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.17" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/read%20inputSize/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.17" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/read%20nextEvent/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/read%20inputSize/result" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/equals%20input%20end/second"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/read%20nextEvent/result" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/equals%20input%20end/first"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/equals%20input%20end/result" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.21"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" name="notLastEvent" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.21" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.2">
+          <guard xsi:type="kernel:LiteralBoolean"/>
+        </edge>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/read%20accepting/result" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.23"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" name="accepting" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.23" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/specify%20true">
+          <guard xsi:type="kernel:LiteralBoolean" value="true"/>
+        </edge>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" name="notAccepting" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.23" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.13">
+          <guard xsi:type="kernel:LiteralBoolean"/>
+        </edge>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/specify%20false/result" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/valid.1"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/specify%20true/result" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/valid.1"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.9" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/call%20ListSize/list"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/call%20ListSize/result" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/equals%200/first"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/read%20self%20FSAConf.1/result" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/read%20currentState.1/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/read%20currentState.1/result" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/read%20accepting/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" name="lastEvent" source="//fsaConfiguration/FSAConfiguration/evaluateInput.1/@node.21" target="//fsaConfiguration/FSAConfiguration/evaluateInput.1/read%20self%20FSAConf.1">
+          <guard xsi:type="kernel:LiteralBoolean" value="true"/>
+        </edge>
+      </ownedBehavior>
+    </eClassifiers>
+    <eClassifiers xsi:type="kernel:BehavioredEClass" name="StateConfiguration">
+      <eSuperTypes href="fsa.ecore#//State"/>
+      <eOperations xsi:type="kernel:BehavioredEOperation" name="getProcessingTransition" method="//fsaConfiguration/StateConfiguration/getProcessingTransition.1">
+        <eParameters name="event" lowerBound="1"/>
+        <eParameters xsi:type="kernel:DirectedParameter" name="transition" direction="OUT"/>
+      </eOperations>
+      <ownedBehavior xsi:type="fUML.Syntax.Activities.IntermediateActivities:Activity" name="getProcessingTransition" specification="//fsaConfiguration/StateConfiguration/getProcessingTransition">
+        <ownedParameter name="event" lowerBound="1"/>
+        <ownedParameter name="transition" direction="OUT"/>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ActivityParameterNode" name="event" outgoing="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.14" lowerBound="1" parameter="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/event"/>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ActivityParameterNode" name="transition" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.8 //fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.9" parameter="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/transition"/>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadSelfAction" name="read self StateConfiguration">
+          <result name="result" outgoing="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.13" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="read outgoingTransitions">
+          <structuralFeature xsi:type="ecore:EReference" href="fsa.ecore#//State/outgoingTransitions"/>
+          <object name="object" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.13" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.0" upperBound="0"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Activities.ExtraStructuredActivities:ExpansionRegion" name="determineProcessingTransitions" outgoing="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.12" inputElement="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@node.5" outputElement="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@node.6">
+          <node xsi:type="fUML.Syntax.Actions.BasicActions:CallOperationAction" name="call canProcess" operation="//fsaConfiguration/TransitionConfiguration/canProcess">
+            <argument name="event" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/@edge.5"/>
+            <result name="process" outgoing="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/canProcessDecisionInputFlow"/>
+            <target name="target" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/@edge.1" lowerBound="1"/>
+          </node>
+          <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:DecisionNode" outgoing="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/canProcess" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/@edge.2 //fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/canProcessDecisionInputFlow" decisionInputFlow="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/canProcessDecisionInputFlow"/>
+          <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ForkNode" outgoing="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/@edge.1 //fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/@edge.2" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/@edge.0"/>
+          <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@node.5" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/@node.2"/>
+          <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/@node.2" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/call%20canProcess/target"/>
+          <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/@node.2" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/@node.1"/>
+          <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" name="canProcessDecisionInputFlow" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/call%20canProcess/process" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/@node.1"/>
+          <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" name="canProcess" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/@node.1" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@node.6">
+            <guard xsi:type="kernel:LiteralBoolean" value="true"/>
+          </edge>
+          <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/input1" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/call%20canProcess/event"/>
+          <structuredNodeInput name="input1" outgoing="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/@edge.5" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.14"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Activities.ExtraStructuredActivities:ExpansionNode" outgoing="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/@edge.0" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.0" regionAsInput="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions"/>
+        <node xsi:type="fUML.Syntax.Activities.ExtraStructuredActivities:ExpansionNode" outgoing="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.1" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/canProcess" regionAsOutput="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions"/>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ForkNode" outgoing="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.2 //fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.3" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.1"/>
+        <node xsi:type="fUML.Syntax.Actions.BasicActions:CallBehaviorAction" name="call ListSize" behavior="//fsaConfiguration/listsize">
+          <argument name="list" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.2" upperBound="-1"/>
+          <result name="result" outgoing="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.4"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:TestIdentityAction" name="equals">
+          <second name="second" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.4" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.6" lowerBound="1"/>
+          <first name="first" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.5" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="specify 1" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.12">
+          <value xsi:type="kernel:LiteralInteger" value="1"/>
+          <result name="result" outgoing="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.5" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:DecisionNode" outgoing="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/oneProcessingTransition //fsaConfiguration/StateConfiguration/getProcessingTransition.1/notOneProcessingTransition" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.6"/>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="specify 1" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/oneProcessingTransition">
+          <value xsi:type="kernel:LiteralInteger" value="1"/>
+          <result name="result" outgoing="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.7" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.BasicActions:CallBehaviorAction" name="call ListGet" behavior="//fsaConfiguration/listget">
+          <argument name="list" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.3" lowerBound="1" upperBound="-1"/>
+          <argument name="index" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.7" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.8"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="specify null" incoming="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/notOneProcessingTransition">
+          <value xsi:type="kernel:LiteralNull"/>
+          <result name="result" outgoing="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@edge.9" lowerBound="1"/>
+        </node>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/read%20outgoingTransitions/result" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@node.5"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@node.6" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@node.7"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@node.7" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/call%20ListSize/list"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@node.7" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/call%20ListGet/list"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/call%20ListSize/result" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/equals/second"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/specify%201/result" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/equals/first"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/equals/result" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@node.11"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/specify%201.1/result" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/call%20ListGet/index"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/call%20ListGet/result" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/transition.1"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/specify%20null/result" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/transition.1"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" name="oneProcessingTransition" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@node.11" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/specify%201.1">
+          <guard xsi:type="kernel:LiteralBoolean" value="true"/>
+        </edge>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" name="notOneProcessingTransition" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/@node.11" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/specify%20null">
+          <guard xsi:type="kernel:LiteralBoolean"/>
+        </edge>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/specify%201"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/read%20self%20StateConfiguration/result" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/read%20outgoingTransitions/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/event.1" target="//fsaConfiguration/StateConfiguration/getProcessingTransition.1/determineProcessingTransitions/input1"/>
+      </ownedBehavior>
+    </eClassifiers>
+    <eClassifiers xsi:type="kernel:BehavioredEClass" name="TransitionConfiguration">
+      <eSuperTypes href="fsa.ecore#//Transition"/>
+      <eOperations xsi:type="kernel:BehavioredEOperation" name="canProcess" method="//fsaConfiguration/TransitionConfiguration/canProcess.1">
+        <eParameters name="event"/>
+        <eParameters xsi:type="kernel:DirectedParameter" name="process" direction="OUT"/>
+      </eOperations>
+      <eOperations xsi:type="kernel:BehavioredEOperation" name="process" method="//fsaConfiguration/TransitionConfiguration/process.1">
+        <eParameters xsi:type="kernel:DirectedParameter" name="state" direction="OUT"/>
+      </eOperations>
+      <ownedBehavior xsi:type="fUML.Syntax.Activities.IntermediateActivities:Activity" name="process" specification="//fsaConfiguration/TransitionConfiguration/process">
+        <ownedParameter name="state" direction="OUT"/>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ActivityParameterNode" name="state" incoming="//fsaConfiguration/TransitionConfiguration/process.1/@edge.1" parameter="//fsaConfiguration/TransitionConfiguration/process.1/state"/>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadSelfAction" name="read self TransitionConfiguration">
+          <result name="result" outgoing="//fsaConfiguration/TransitionConfiguration/process.1/@edge.0" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="read toState">
+          <structuralFeature xsi:type="ecore:EReference" href="fsa.ecore#//Transition/toState"/>
+          <object name="object" incoming="//fsaConfiguration/TransitionConfiguration/process.1/@edge.0" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/TransitionConfiguration/process.1/@edge.1" upperBound="0"/>
+        </node>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/TransitionConfiguration/process.1/read%20self%20TransitionConfiguration/result" target="//fsaConfiguration/TransitionConfiguration/process.1/read%20toState/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/TransitionConfiguration/process.1/read%20toState/result" target="//fsaConfiguration/TransitionConfiguration/process.1/state.1"/>
+      </ownedBehavior>
+      <ownedBehavior xsi:type="fUML.Syntax.Activities.IntermediateActivities:Activity" name="canProcess" specification="//fsaConfiguration/TransitionConfiguration/canProcess">
+        <ownedParameter name="event"/>
+        <ownedParameter name="process" direction="OUT"/>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ActivityParameterNode" name="event" outgoing="//fsaConfiguration/TransitionConfiguration/canProcess.1/@edge.0" parameter="//fsaConfiguration/TransitionConfiguration/canProcess.1/event"/>
+        <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ActivityParameterNode" name="process" incoming="//fsaConfiguration/TransitionConfiguration/canProcess.1/@edge.4" parameter="//fsaConfiguration/TransitionConfiguration/canProcess.1/process"/>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadSelfAction" name="read self TransitionConfiguration">
+          <result name="result" outgoing="//fsaConfiguration/TransitionConfiguration/canProcess.1/@edge.1" lowerBound="1"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="read event">
+          <structuralFeature xsi:type="ecore:EAttribute" href="fsa.ecore#//Transition/event"/>
+          <object name="object" incoming="//fsaConfiguration/TransitionConfiguration/canProcess.1/@edge.1" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/TransitionConfiguration/canProcess.1/@edge.3" upperBound="0"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="read eventString" structuralFeature="//fsaConfiguration/Event/eventString">
+          <object name="object" incoming="//fsaConfiguration/TransitionConfiguration/canProcess.1/@edge.0" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/TransitionConfiguration/canProcess.1/@edge.2" upperBound="0"/>
+        </node>
+        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:TestIdentityAction" name="equals eventstring">
+          <second name="second" incoming="//fsaConfiguration/TransitionConfiguration/canProcess.1/@edge.2" lowerBound="1"/>
+          <result name="result" outgoing="//fsaConfiguration/TransitionConfiguration/canProcess.1/@edge.4" lowerBound="1"/>
+          <first name="first" incoming="//fsaConfiguration/TransitionConfiguration/canProcess.1/@edge.3" lowerBound="1"/>
+        </node>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/TransitionConfiguration/canProcess.1/event.1" target="//fsaConfiguration/TransitionConfiguration/canProcess.1/read%20eventString/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/TransitionConfiguration/canProcess.1/read%20self%20TransitionConfiguration/result" target="//fsaConfiguration/TransitionConfiguration/canProcess.1/read%20event/object"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/TransitionConfiguration/canProcess.1/read%20eventString/result" target="//fsaConfiguration/TransitionConfiguration/canProcess.1/equals%20eventstring/second"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/TransitionConfiguration/canProcess.1/read%20event/result" target="//fsaConfiguration/TransitionConfiguration/canProcess.1/equals%20eventstring/first"/>
+        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//fsaConfiguration/TransitionConfiguration/canProcess.1/equals%20eventstring/result" target="//fsaConfiguration/TransitionConfiguration/canProcess.1/process.1"/>
+      </ownedBehavior>
+    </eClassifiers>
+    <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="add">
+      <ownedParameter name="x" lowerBound="1"/>
+      <ownedParameter name="y" lowerBound="1"/>
+      <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="subtract">
+      <ownedParameter name="x" lowerBound="1"/>
+      <ownedParameter name="y" lowerBound="1"/>
+      <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="greater">
+      <ownedParameter name="x" lowerBound="1"/>
+      <ownedParameter name="y" lowerBound="1"/>
+      <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="listget">
+      <ownedParameter name="list" lowerBound="1" upperBound="-1"/>
+      <ownedParameter name="index" lowerBound="1"/>
+      <ownedParameter name="result" direction="OUT"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="listsize">
+      <ownedParameter name="list" upperBound="-1"/>
+      <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Initialization">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="events" upperBound="-1" eType="//fsaConfiguration/Event" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Event">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="eventString" lowerBound="1">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+  </eSubpackages>
 </ecore:EPackage>
