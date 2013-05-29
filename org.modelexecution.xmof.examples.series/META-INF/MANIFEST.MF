@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Series
+Bundle-SymbolicName: org.modelexecution.xmof.examples.series;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: www.example.org
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport
+Bundle-ActivationPolicy: lazy

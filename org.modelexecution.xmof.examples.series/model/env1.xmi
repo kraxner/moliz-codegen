@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<series:Environment
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:series="http://series.examples.org"
+    name="testenv">
+  <counters
+      limit="5"
+      value="1"/>
+</series:Environment>

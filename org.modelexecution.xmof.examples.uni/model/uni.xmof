@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:fUML.Syntax.CommonBehaviors.BasicBehaviors="http://www.modelexecution.org/xmof/syntax/commonbehaviors/basicbehaviors" xmlns:kernel="http://www.modelexecution.org/xmof/syntax/classes/mykernel" name="uniConfiguration" nsURI="www.uni.org/configuration" nsPrefix="uniConf">
+  <eClassifiers xsi:type="kernel:BehavioredEClass" name="StudentConfiguration">
+    <eSuperTypes href="platform:/resource/org.modelexecution.xmof.examples.uni/model/uni.ecore#//Student"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="kernel:BehavioredEClass" name="UniversityConfiguration">
+    <eSuperTypes href="platform:/resource/org.modelexecution.xmof.examples.uni/model/uni.ecore#//University"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="kernel:BehavioredEClass" name="ThesisConfiguration">
+    <eSuperTypes href="platform:/resource/org.modelexecution.xmof.examples.uni/model/uni.ecore#//Thesis"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="add">
+    <ownedParameter name="x" lowerBound="1"/>
+    <ownedParameter name="y" lowerBound="1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="subtract">
+    <ownedParameter name="x" lowerBound="1"/>
+    <ownedParameter name="y" lowerBound="1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="multiply">
+    <ownedParameter name="x" lowerBound="1"/>
+    <ownedParameter name="y" lowerBound="1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="divide">
+    <ownedParameter name="x" lowerBound="1"/>
+    <ownedParameter name="y" lowerBound="1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="smaller">
+    <ownedParameter name="x" lowerBound="1"/>
+    <ownedParameter name="y" lowerBound="1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="greater">
+    <ownedParameter name="x" lowerBound="1"/>
+    <ownedParameter name="y" lowerBound="1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="listget">
+    <ownedParameter name="list" lowerBound="1" upperBound="-1"/>
+    <ownedParameter name="index" lowerBound="1"/>
+    <ownedParameter name="result" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="listsize">
+    <ownedParameter name="list" upperBound="-1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="listindexof">
+    <ownedParameter name="list" upperBound="-1"/>
+    <ownedParameter name="object" lowerBound="1"/>
+    <ownedParameter name="result" direction="OUT"/>
+  </eClassifiers>
+</ecore:EPackage>

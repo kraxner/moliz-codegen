@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: University Model
+Bundle-SymbolicName: org.modelexecution.xmof.examples.uni
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: www.example.org
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

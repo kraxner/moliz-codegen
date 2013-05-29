@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_Ll5doMa2EeKFzp_r1dz_Nw" type="EcoreTools" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_LmescMa2EeKFzp_r1dz_Nw" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_LmhIsMa2EeKFzp_r1dz_Nw" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_Lmi94Ma2EeKFzp_r1dz_Nw" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_bKQjYMa2EeKFzp_r1dz_Nw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="uni.ecore#//Student/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_bKQjYca2EeKFzp_r1dz_Nw"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_Lmi94ca2EeKFzp_r1dz_Nw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Lmi94sa2EeKFzp_r1dz_Nw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Lmi948a2EeKFzp_r1dz_Nw"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_Lmi95Ma2EeKFzp_r1dz_Nw" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_Lmi95ca2EeKFzp_r1dz_Nw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_Lmi95sa2EeKFzp_r1dz_Nw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_Lmi958a2EeKFzp_r1dz_Nw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_Lmescca2EeKFzp_r1dz_Nw" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="uni.ecore#//Student"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Lmescsa2EeKFzp_r1dz_Nw" x="10" y="175"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_OLu3cMa2EeKFzp_r1dz_Nw" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_OLvegMa2EeKFzp_r1dz_Nw" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_OLwFkMa2EeKFzp_r1dz_Nw" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_eg5vEMa2EeKFzp_r1dz_Nw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="uni.ecore#//University/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_eg5vEca2EeKFzp_r1dz_Nw"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_OLwFkca2EeKFzp_r1dz_Nw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_OLwFksa2EeKFzp_r1dz_Nw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_OLwFk8a2EeKFzp_r1dz_Nw"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_OLwFlMa2EeKFzp_r1dz_Nw" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_OLwFlca2EeKFzp_r1dz_Nw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_OLwFlsa2EeKFzp_r1dz_Nw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_OLwFl8a2EeKFzp_r1dz_Nw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_OLu3cca2EeKFzp_r1dz_Nw" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="uni.ecore#//University"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OLu3csa2EeKFzp_r1dz_Nw" x="5" y="10"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_4obRkMa2EeKFzp_r1dz_Nw" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_4ob4oMa2EeKFzp_r1dz_Nw" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_4ob4oca2EeKFzp_r1dz_Nw" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_56OQoMa2EeKFzp_r1dz_Nw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="uni.ecore#//Thesis/title"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_56OQoca2EeKFzp_r1dz_Nw"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_4ob4osa2EeKFzp_r1dz_Nw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_4ocfsMa2EeKFzp_r1dz_Nw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_4ocfsca2EeKFzp_r1dz_Nw"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_4ocfssa2EeKFzp_r1dz_Nw" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_4ocfs8a2EeKFzp_r1dz_Nw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_4ocftMa2EeKFzp_r1dz_Nw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_4ocftca2EeKFzp_r1dz_Nw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_4obRkca2EeKFzp_r1dz_Nw" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="uni.ecore#//Thesis"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4obRksa2EeKFzp_r1dz_Nw" x="200" y="80"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_Ll5doca2EeKFzp_r1dz_Nw"/>
+  <element xmi:type="ecore:EPackage" href="uni.ecore#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_lG_5UMa2EeKFzp_r1dz_Nw" type="3002" source="_OLu3cMa2EeKFzp_r1dz_Nw" target="_LmescMa2EeKFzp_r1dz_Nw">
+    <children xmi:type="notation:Node" xmi:id="_lHBHcMa2EeKFzp_r1dz_Nw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_lHBHcca2EeKFzp_r1dz_Nw" x="-15" y="-37"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_lHBHcsa2EeKFzp_r1dz_Nw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_lHBHc8a2EeKFzp_r1dz_Nw" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_lG_5Uca2EeKFzp_r1dz_Nw" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_lG_5Usa2EeKFzp_r1dz_Nw" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="uni.ecore#//University/students"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lG_5U8a2EeKFzp_r1dz_Nw" points="[-3, 25, 1, -155]$[-3, 190, 1, 10]"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lHZh8Ma2EeKFzp_r1dz_Nw" id="(0.41739130434782606,0.803921568627451)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_ff3U4Ma6EeKFzp_r1dz_Nw" type="3002" source="_LmescMa2EeKFzp_r1dz_Nw" target="_4obRkMa2EeKFzp_r1dz_Nw">
+    <children xmi:type="notation:Node" xmi:id="_ff378Ma6EeKFzp_r1dz_Nw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ff378ca6EeKFzp_r1dz_Nw" x="-20" y="16"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_ff4jAMa6EeKFzp_r1dz_Nw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ff4jAca6EeKFzp_r1dz_Nw" x="3" y="14"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_ff3U4ca6EeKFzp_r1dz_Nw" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_ff3U4sa6EeKFzp_r1dz_Nw" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="uni.ecore#//Student/writesThesis"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ff3U48a6EeKFzp_r1dz_Nw" points="[17, -11, -127, 83]$[194, -99, 50, -5]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ff6YMMa6EeKFzp_r1dz_Nw" id="(0.8521739130434782,0.47058823529411764)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_lt3vQMa6EeKFzp_r1dz_Nw" type="3002" source="_OLu3cMa2EeKFzp_r1dz_Nw" target="_4obRkMa2EeKFzp_r1dz_Nw">
+    <children xmi:type="notation:Node" xmi:id="_lt4WUMa6EeKFzp_r1dz_Nw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_lt4WUca6EeKFzp_r1dz_Nw" x="-16" y="-26"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_lt4WUsa6EeKFzp_r1dz_Nw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_lt4WU8a6EeKFzp_r1dz_Nw" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_lt3vQca6EeKFzp_r1dz_Nw" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_lt3vQsa6EeKFzp_r1dz_Nw" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="uni.ecore#//University/collects"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_lt3vQ8a6EeKFzp_r1dz_Nw" points="[28, 14, -97, -49]$[126, 49, 1, -14]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lt6ykMa6EeKFzp_r1dz_Nw" id="(0.7565217391304347,0.43137254901960786)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lt6ykca6EeKFzp_r1dz_Nw" id="(0.1568627450980392,0.29411764705882354)"/>
+  </edges>
+</notation:Diagram>
