@@ -17,6 +17,7 @@ public class CodeGeneratorTest {
 	private static final Logger LOG = Logger.getLogger(CodeGeneratorTest.class
 			.getName());
 
+	@Ignore
 	@Test
 	public void testSeries() {
 		URI xmofFile = URI.createURI("platform:/plugin/org.modelexecution.xmof.examples.series/model/Series.xmof");
@@ -42,7 +43,7 @@ public class CodeGeneratorTest {
 	 * schemas cannot be resolved: (e.g.:
 	 * http://www.modelexecution.org/xmof/syntax/classes/mykernel)
 	 */
-	@Ignore
+//	@Ignore
 	@Test
 	public void testImpl() {
 		URI xmofFile = URI.createFileURI((new File("resources/iml/impl.xmof"))

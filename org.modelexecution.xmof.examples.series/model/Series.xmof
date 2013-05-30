@@ -1,27 +1,58 @@
 <?xml version="1.0" encoding="ASCII"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:fUML.Syntax.Actions.IntermediateActions="http://www.modelexecution.org/xmof/syntax/actions/intermediateactions" xmlns:fUML.Syntax.Activities.IntermediateActivities="http://www.modelexecution.org/xmof/syntax/activities/intermediateactivities" xmlns:fUML.Syntax.CommonBehaviors.BasicBehaviors="http://www.modelexecution.org/xmof/syntax/commonbehaviors/basicbehaviors" xmlns:kernel="http://www.modelexecution.org/xmof/syntax/classes/mykernel" name="seriesConfiguration" nsURI="http://series.examples.org/configuration" nsPrefix="seriesConf">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:fUML.Syntax.Actions.BasicActions="http://www.modelexecution.org/xmof/syntax/actions/basicactions" xmlns:fUML.Syntax.Actions.IntermediateActions="http://www.modelexecution.org/xmof/syntax/actions/intermediateactions" xmlns:fUML.Syntax.Activities.IntermediateActivities="http://www.modelexecution.org/xmof/syntax/activities/intermediateactivities" xmlns:fUML.Syntax.CommonBehaviors.BasicBehaviors="http://www.modelexecution.org/xmof/syntax/commonbehaviors/basicbehaviors" xmlns:kernel="http://www.modelexecution.org/xmof/syntax/classes/mykernel" name="seriesConfiguration" nsURI="http://series.examples.org/configuration" nsPrefix="seriesConf">
   <eClassifiers xsi:type="kernel:MainEClass" name="EnvironmentConfiguration" instanceClassName="" classifierBehavior="//EnvironmentConfiguration/Main">
     <eSuperTypes href="Series.ecore#//Environment"/>
     <ownedBehavior xsi:type="fUML.Syntax.Activities.IntermediateActivities:Activity" name="Main" context="//EnvironmentConfiguration">
-      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:CreateObjectAction" name="Create Counter">
-        <result name="result" outgoing="//EnvironmentConfiguration/Main/@edge.0" lowerBound="1"/>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:CreateObjectAction" name="Create Counter" outgoing="//EnvironmentConfiguration/Main/@edge.4" incoming="//EnvironmentConfiguration/Main/@edge.3">
+        <result name="result" outgoing="//EnvironmentConfiguration/Main/@edge.5" lowerBound="1"/>
         <classifier xsi:type="ecore:EClass" href="Series.ecore#//Counter"/>
       </node>
-      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="specify 5">
-        <context xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
-        <result name="result" outgoing="//EnvironmentConfiguration/Main/@edge.1" lowerBound="1">
-          <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
-        </result>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="specify 5" incoming="//EnvironmentConfiguration/Main/@edge.4">
+        <value xsi:type="kernel:LiteralInteger" value="7"/>
+        <result name="result" outgoing="//EnvironmentConfiguration/Main/@edge.6" lowerBound="1"/>
       </node>
-      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:AddStructuralFeatureValueAction" name="Add Structural Feature Value Action">
-        <context xsi:type="ecore:EClass" href="Series.ecore#//Counter"/>
-        <structuralFeature xsi:type="ecore:EAttribute" href="Series.ecore#//Counter/limit"/>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadSelfAction" name="Read Self Action">
+        <result name="result" outgoing="//EnvironmentConfiguration/Main/@edge.0" lowerBound="1"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.BasicActions:CallBehaviorAction" name="Call listget" outgoing="//EnvironmentConfiguration/Main/@edge.3" context="//EnvironmentConfiguration" behavior="//listget">
+        <argument name="list" incoming="//EnvironmentConfiguration/Main/@edge.1" lowerBound="1" upperBound="-1"/>
+        <argument name="index" incoming="//EnvironmentConfiguration/Main/@edge.2" lowerBound="1"/>
+        <result name="result"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="Read counters" context="//EnvironmentConfiguration">
+        <structuralFeature xsi:type="ecore:EReference" href="Series.ecore#//Environment/counters"/>
         <object name="object" incoming="//EnvironmentConfiguration/Main/@edge.0" lowerBound="1"/>
-        <value name="value" incoming="//EnvironmentConfiguration/Main/@edge.1" lowerBound="1"/>
+        <result name="result" outgoing="//EnvironmentConfiguration/Main/@edge.1" upperBound="0"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="specify first">
+        <value xsi:type="kernel:LiteralInteger" value="1"/>
+        <result name="result" outgoing="//EnvironmentConfiguration/Main/@edge.2" lowerBound="1"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:AddStructuralFeatureValueAction" name="Set limit" replaceAll="true">
+        <structuralFeature xsi:type="ecore:EAttribute" href="Series.ecore#//Counter/limit"/>
+        <object name="object" incoming="//EnvironmentConfiguration/Main/@edge.5" lowerBound="1"/>
+        <value name="value" incoming="//EnvironmentConfiguration/Main/@edge.6" lowerBound="1"/>
+        <result name="result" outgoing="//EnvironmentConfiguration/Main/@edge.7" lowerBound="1"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:AddStructuralFeatureValueAction" name="set limit again" replaceAll="true">
+        <structuralFeature xsi:type="ecore:EAttribute" href="Series.ecore#//Counter/limit"/>
+        <object name="object" incoming="//EnvironmentConfiguration/Main/@edge.7" lowerBound="1"/>
+        <value name="value" incoming="//EnvironmentConfiguration/Main/@edge.8" lowerBound="1"/>
         <result name="result" lowerBound="1"/>
       </node>
-      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/Create%20Counter/result" target="//EnvironmentConfiguration/Main/Add%20Structural%20Feature%20Value%20Action/object"/>
-      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/specify%205/result" target="//EnvironmentConfiguration/Main/Add%20Structural%20Feature%20Value%20Action/value"/>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="specify 42">
+        <value xsi:type="kernel:LiteralInteger" value="42"/>
+        <result name="result" outgoing="//EnvironmentConfiguration/Main/@edge.8" lowerBound="1"/>
+      </node>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/Read%20Self%20Action/result" target="//EnvironmentConfiguration/Main/Read%20counters/object"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/Read%20counters/result" target="//EnvironmentConfiguration/Main/Call%20listget/list"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/specify%20first/result" target="//EnvironmentConfiguration/Main/Call%20listget/index"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//EnvironmentConfiguration/Main/Call%20listget" target="//EnvironmentConfiguration/Main/Create%20Counter"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//EnvironmentConfiguration/Main/Create%20Counter" target="//EnvironmentConfiguration/Main/specify%205"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/Create%20Counter/result" target="//EnvironmentConfiguration/Main/Set%20limit/object"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/specify%205/result" target="//EnvironmentConfiguration/Main/Set%20limit/value"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/Set%20limit/result" target="//EnvironmentConfiguration/Main/set%20limit%20again/object"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/specify%2042/result" target="//EnvironmentConfiguration/Main/set%20limit%20again/value"/>
     </ownedBehavior>
   </eClassifiers>
   <eClassifiers xsi:type="kernel:BehavioredEClass" name="CounterConfiguration">

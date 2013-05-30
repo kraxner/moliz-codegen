@@ -5,6 +5,6 @@
     xmlns:series="http://series.examples.org"
     name="testenv">
   <counters
-      limit="5"
+      limit="7"
       value="1"/>
 </series:Environment>
