@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="ASCII"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:fUML.Syntax.Actions.IntermediateActions="http://www.modelexecution.org/xmof/syntax/actions/intermediateactions" xmlns:fUML.Syntax.Activities.IntermediateActivities="http://www.modelexecution.org/xmof/syntax/activities/intermediateactivities" xmlns:fUML.Syntax.CommonBehaviors.BasicBehaviors="http://www.modelexecution.org/xmof/syntax/commonbehaviors/basicbehaviors" xmlns:kernel="http://www.modelexecution.org/xmof/syntax/classes/mykernel" name="seriesConfiguration" nsURI="http://series.examples.org/configuration" nsPrefix="seriesConf">
-  <eClassifiers xsi:type="kernel:MainEClass" name="EnvironmentConfiguration" classifierBehavior="//EnvironmentConfiguration/Main">
+  <eClassifiers xsi:type="kernel:MainEClass" name="EnvironmentConfiguration" instanceClassName="" classifierBehavior="//EnvironmentConfiguration/Main">
     <eSuperTypes href="Series.ecore#//Environment"/>
-    <ownedBehavior xsi:type="fUML.Syntax.Activities.IntermediateActivities:Activity" name="Main"/>
+    <ownedBehavior xsi:type="fUML.Syntax.Activities.IntermediateActivities:Activity" name="Main" context="//EnvironmentConfiguration">
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:CreateObjectAction" name="Create Counter">
+        <result name="result" outgoing="//EnvironmentConfiguration/Main/@edge.0" lowerBound="1"/>
+        <classifier xsi:type="ecore:EClass" href="Series.ecore#//Counter"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="specify 5">
+        <context xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+        <result name="result" outgoing="//EnvironmentConfiguration/Main/@edge.1" lowerBound="1">
+          <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+        </result>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:AddStructuralFeatureValueAction" name="Add Structural Feature Value Action">
+        <context xsi:type="ecore:EClass" href="Series.ecore#//Counter"/>
+        <structuralFeature xsi:type="ecore:EAttribute" href="Series.ecore#//Counter/limit"/>
+        <object name="object" incoming="//EnvironmentConfiguration/Main/@edge.0" lowerBound="1"/>
+        <value name="value" incoming="//EnvironmentConfiguration/Main/@edge.1" lowerBound="1"/>
+        <result name="result" lowerBound="1"/>
+      </node>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/Create%20Counter/result" target="//EnvironmentConfiguration/Main/Add%20Structural%20Feature%20Value%20Action/object"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/specify%205/result" target="//EnvironmentConfiguration/Main/Add%20Structural%20Feature%20Value%20Action/value"/>
+    </ownedBehavior>
   </eClassifiers>
   <eClassifiers xsi:type="kernel:BehavioredEClass" name="CounterConfiguration">
     <eSuperTypes href="Series.ecore#//Counter"/>
