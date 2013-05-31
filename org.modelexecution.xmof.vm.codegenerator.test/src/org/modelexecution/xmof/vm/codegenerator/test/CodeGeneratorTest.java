@@ -11,13 +11,14 @@ import org.junit.Test;
 import org.modelexecution.xmof.vm.XMOFBasedModel;
 import org.modelexecution.xmof.vm.XMOFVirtualMachine;
 import org.modelexecution.xmof.vm.codegenerator.CodeGenerator;
+import org.modelexecution.xmof.vm.codegenerator.Method;
 import org.modelexecution.xmof.vm.codegenerator.XMOFBasedModelLoader;
 
 public class CodeGeneratorTest {
 	private static final Logger LOG = Logger.getLogger(CodeGeneratorTest.class
 			.getName());
 
-	@Ignore
+//	@Ignore
 	@Test
 	public void testSeries() {
 		URI xmofFile = URI.createURI("platform:/plugin/org.modelexecution.xmof.examples.series/model/Series.xmof");
@@ -30,7 +31,11 @@ public class CodeGeneratorTest {
 		CodeGenerator codeGen = new CodeGenerator();
 		codeGen.init(new XMOFVirtualMachine(xmofModel));
 		StringWriter out = new StringWriter();
-		codeGen.generate(out);
+		codeGen.generate();
+		
+		for (Method m : codeGen.getMethods("EnvironmentConfiguration")) {
+			LOG.info(m.getName() +": " + m.getBuffer().toString());
+		}
 
 		LOG.info("generated code:");
 		LOG.info(out.toString());
@@ -43,7 +48,7 @@ public class CodeGeneratorTest {
 	 * schemas cannot be resolved: (e.g.:
 	 * http://www.modelexecution.org/xmof/syntax/classes/mykernel)
 	 */
-//	@Ignore
+	@Ignore
 	@Test
 	public void testImpl() {
 		URI xmofFile = URI.createFileURI((new File("resources/iml/impl.xmof"))
@@ -59,7 +64,7 @@ public class CodeGeneratorTest {
 		CodeGenerator codeGen = new CodeGenerator();
 		codeGen.init(new XMOFVirtualMachine(xmofModel));
 		StringWriter out = new StringWriter();
-		codeGen.generate(out);
+		codeGen.generate();
 
 		LOG.info("generated code:");
 		LOG.info(out.toString());

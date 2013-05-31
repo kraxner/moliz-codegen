@@ -4,3 +4,4 @@
 *.bbl
 *.toc
 *.gz
+*._trace
