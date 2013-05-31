@@ -40,7 +40,7 @@ Favoritenstrasse 9-11, 1040 Wien \\ \email{contact@sebastiankerekes.com} \\ Matr
 \and
 Favoritenstrasse 9-11, 1040 Wien \\ \email{michael.kraxner@gmail.com} \\ MatrNr.: 9925916
 \and
-Favoritenstrasse 9-11, 1040 Wien \\ \email{lackner.martin@gmail.com} \\ MatrNr.: 
+Favoritenstrasse 9-11, 1040 Wien \\ \email{lackner.martin@gmail.com} \\ MatrNr.: 0927551
 }
 
 
@@ -79,6 +79,27 @@ In the last decade model driven engineering has devop  \dots
 % This document is intended as a template and guideline and should support the author in the course of creating a seminar paper. Assessment criteria comprise the quality of the theoretical and/or practical work as well as structure, content and wording of the written seminar paper. Careful attention should be given to the basics of scientific work (e.g., correct citation).
 
 
+\section{Semantics}
+Any (model) language is defined by its syntax, in this context a metamodel, and its semantics, the meaning of each element in the metamodel. We can distinguish between the static and the dynamic semantics. The static semantics defines structural properties of model elements in a metamodel (for further reading see~\cite{jour:10}~\cite{jour:3}), and the dynamic semantics regards to the execution of such models and its behavior~\cite{jour:3}. For our work we are interested in the dynamic semantics.
+
+\subsection{Dynamic Semantics}
+The dynamic or execution semantics defines the behavior under execution of models. This can be done in many ways, e.g., the semantics of UML is defined in OCL and natural language. A more sophisticated way which is seen very often in practice is either to use code generators to generate compilable source code, or to provide an interpreter which can process the models directly. But this approach is only feasible if the semantics is defined formally. Otherwise it would be too error prone, time-consuming and very costly if this would be done by manually studying and exploring the models~\cite{jour:3}.
+
+We can distinguish between four different "semantic description styles" to define the semantics of a model formally~\cite{jour:3}~\cite{jour:10}:
+\begin{description}
+\item [Denotational] \hfill \\
+This semantic provides a mapping between mathematical functions and model specific language constructs. E.g., it maps the keyword "-" to the subtraction function on natural numbers.
+\item [Axiomatic] \hfill \\
+This semantic provides a mapping between logical rules and model specific language constructs. E.g., stating that two arguments of a function "-" produces an output with the same type of the two arguments.
+\item [Translational] \hfill \\
+This semantic provides a mapping between the elements of a original model and model elements of a language where the semantics is already formally defined. The mapping is done by model transformation and can be used if the semantics of the source and the target models are closely correlated. Due to the fact, that the model transformation is done on the syntax level it is not guaranteed that the semantic of the final model behaves as desired. You also have to have an in-depth knowledge of both model languages and use multiple frameworks to achive good results.
+\item [Operational] \hfill \\
+This semantics describes how model constructs are executed on an abstract machine. It describes the effect of the computation and how the computation is produced.
+\end{description}
+
+Another approach to define the semantics is to "weave behavior" into the abstract syntax by a meta-language. On this approach the behavior of an operation is specified inside the body of the operation on the meta level. E.g., Kermata uses this approach by extending its abstract meta-layer with an imperative action language~\cite{jour:4}.
+
+The last approach we will mention here is to define semantics with "Rewrite Rules". A system consits of rewrite rules and each rewrite rule has a left- and a right-hand side. When executing a model the system takes an model element, looks if such a model element occurs on the left-hand side of a rule and replaces it with the right-hand side if such a configuration is found~\cite{jour:4}.
 
 \section{Related work}
 
