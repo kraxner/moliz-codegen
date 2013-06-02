@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<emfprofileapplication:ProfileApplication xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:seriesConf_profile="http://series.examples.org/configuration/profile" xsi:schemaLocation="http://series.examples.org/configuration/profile platform:/resource/counterProfile/profile.emfprofile_diagram#_8XAkgMkZEeKAnO3QaSt8wg">
+  <stereotypeApplications xsi:type="seriesConf_profile:CounterConfigurationStereotype" value="5">
+    <appliedTo href="platform:/resource/org.modelexecution.xmof.examples.series/model/Counter.xmi#/"/>
+    <extension href="platform:/resource/counterProfile/profile.emfprofile_diagram#_8XAkh8kZEeKAnO3QaSt8wg"/>
+  </stereotypeApplications>
+  <importedProfiles nsURI="http://series.examples.org/configuration/profile" location="platform:/resource/counterProfile/profile.emfprofile_diagram"/>
+</emfprofileapplication:ProfileApplication>

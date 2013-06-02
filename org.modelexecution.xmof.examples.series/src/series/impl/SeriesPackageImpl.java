@@ -5,14 +5,16 @@ package series.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import series.Counter;
-import series.Environment;
 import series.SeriesFactory;
 import series.SeriesPackage;
+
+import seriesConfiguration.SeriesConfigurationPackage;
+
+import seriesConfiguration.impl.SeriesConfigurationPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,13 +23,6 @@ import series.SeriesPackage;
  * @generated
  */
 public class SeriesPackageImpl extends EPackageImpl implements SeriesPackage {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass environmentEClass = null;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -81,11 +76,16 @@ public class SeriesPackageImpl extends EPackageImpl implements SeriesPackage {
 
 		isInited = true;
 
+		// Obtain or create and register interdependencies
+		SeriesConfigurationPackageImpl theSeriesConfigurationPackage = (SeriesConfigurationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SeriesConfigurationPackage.eNS_URI) instanceof SeriesConfigurationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SeriesConfigurationPackage.eNS_URI) : SeriesConfigurationPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theSeriesPackage.createPackageContents();
+		theSeriesConfigurationPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theSeriesPackage.initializePackageContents();
+		theSeriesConfigurationPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theSeriesPackage.freeze();
@@ -94,33 +94,6 @@ public class SeriesPackageImpl extends EPackageImpl implements SeriesPackage {
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(SeriesPackage.eNS_URI, theSeriesPackage);
 		return theSeriesPackage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEnvironment() {
-		return environmentEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEnvironment_Counters() {
-		return (EReference)environmentEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEnvironment_Name() {
-		return (EAttribute)environmentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -146,7 +119,7 @@ public class SeriesPackageImpl extends EPackageImpl implements SeriesPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCounter_Value() {
+	public EAttribute getCounter_StartValue() {
 		return (EAttribute)counterEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -178,13 +151,9 @@ public class SeriesPackageImpl extends EPackageImpl implements SeriesPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		environmentEClass = createEClass(ENVIRONMENT);
-		createEReference(environmentEClass, ENVIRONMENT__COUNTERS);
-		createEAttribute(environmentEClass, ENVIRONMENT__NAME);
-
 		counterEClass = createEClass(COUNTER);
 		createEAttribute(counterEClass, COUNTER__LIMIT);
-		createEAttribute(counterEClass, COUNTER__VALUE);
+		createEAttribute(counterEClass, COUNTER__START_VALUE);
 	}
 
 	/**
@@ -217,13 +186,9 @@ public class SeriesPackageImpl extends EPackageImpl implements SeriesPackage {
 		// Add supertypes to classes
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(environmentEClass, Environment.class, "Environment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEnvironment_Counters(), this.getCounter(), null, "counters", null, 0, -1, Environment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEnvironment_Name(), ecorePackage.getEString(), "name", null, 0, 1, Environment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(counterEClass, Counter.class, "Counter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCounter_Limit(), ecorePackage.getELong(), "limit", null, 0, 1, Counter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCounter_Value(), ecorePackage.getELong(), "value", null, 0, 1, Counter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCounter_Limit(), ecorePackage.getEInt(), "limit", "42", 0, 1, Counter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCounter_StartValue(), ecorePackage.getEInt(), "startValue", "7", 0, 1, Counter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

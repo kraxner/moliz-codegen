@@ -20,7 +20,7 @@ import series.SeriesPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link series.impl.CounterImpl#getLimit <em>Limit</em>}</li>
- *   <li>{@link series.impl.CounterImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link series.impl.CounterImpl#getStartValue <em>Start Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -35,7 +35,7 @@ public class CounterImpl extends EObjectImpl implements Counter {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final long LIMIT_EDEFAULT = 0L;
+	protected static final int LIMIT_EDEFAULT = 42;
 
 	/**
 	 * The cached value of the '{@link #getLimit() <em>Limit</em>}' attribute.
@@ -45,27 +45,27 @@ public class CounterImpl extends EObjectImpl implements Counter {
 	 * @generated
 	 * @ordered
 	 */
-	protected long limit = LIMIT_EDEFAULT;
+	protected int limit = LIMIT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The default value of the '{@link #getStartValue() <em>Start Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getStartValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final long VALUE_EDEFAULT = 0L;
+	protected static final int START_VALUE_EDEFAULT = 7;
 
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The cached value of the '{@link #getStartValue() <em>Start Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getStartValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected long value = VALUE_EDEFAULT;
+	protected int startValue = START_VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -91,7 +91,7 @@ public class CounterImpl extends EObjectImpl implements Counter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public long getLimit() {
+	public int getLimit() {
 		return limit;
 	}
 
@@ -100,8 +100,8 @@ public class CounterImpl extends EObjectImpl implements Counter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLimit(long newLimit) {
-		long oldLimit = limit;
+	public void setLimit(int newLimit) {
+		int oldLimit = limit;
 		limit = newLimit;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SeriesPackage.COUNTER__LIMIT, oldLimit, limit));
@@ -112,8 +112,8 @@ public class CounterImpl extends EObjectImpl implements Counter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public long getValue() {
-		return value;
+	public int getStartValue() {
+		return startValue;
 	}
 
 	/**
@@ -121,11 +121,11 @@ public class CounterImpl extends EObjectImpl implements Counter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(long newValue) {
-		long oldValue = value;
-		value = newValue;
+	public void setStartValue(int newStartValue) {
+		int oldStartValue = startValue;
+		startValue = newStartValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SeriesPackage.COUNTER__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, SeriesPackage.COUNTER__START_VALUE, oldStartValue, startValue));
 	}
 
 	/**
@@ -138,8 +138,8 @@ public class CounterImpl extends EObjectImpl implements Counter {
 		switch (featureID) {
 			case SeriesPackage.COUNTER__LIMIT:
 				return getLimit();
-			case SeriesPackage.COUNTER__VALUE:
-				return getValue();
+			case SeriesPackage.COUNTER__START_VALUE:
+				return getStartValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -153,10 +153,10 @@ public class CounterImpl extends EObjectImpl implements Counter {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case SeriesPackage.COUNTER__LIMIT:
-				setLimit((Long)newValue);
+				setLimit((Integer)newValue);
 				return;
-			case SeriesPackage.COUNTER__VALUE:
-				setValue((Long)newValue);
+			case SeriesPackage.COUNTER__START_VALUE:
+				setStartValue((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -173,8 +173,8 @@ public class CounterImpl extends EObjectImpl implements Counter {
 			case SeriesPackage.COUNTER__LIMIT:
 				setLimit(LIMIT_EDEFAULT);
 				return;
-			case SeriesPackage.COUNTER__VALUE:
-				setValue(VALUE_EDEFAULT);
+			case SeriesPackage.COUNTER__START_VALUE:
+				setStartValue(START_VALUE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -190,8 +190,8 @@ public class CounterImpl extends EObjectImpl implements Counter {
 		switch (featureID) {
 			case SeriesPackage.COUNTER__LIMIT:
 				return limit != LIMIT_EDEFAULT;
-			case SeriesPackage.COUNTER__VALUE:
-				return value != VALUE_EDEFAULT;
+			case SeriesPackage.COUNTER__START_VALUE:
+				return startValue != START_VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -208,8 +208,8 @@ public class CounterImpl extends EObjectImpl implements Counter {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (limit: ");
 		result.append(limit);
-		result.append(", value: ");
-		result.append(value);
+		result.append(", startValue: ");
+		result.append(startValue);
 		result.append(')');
 		return result.toString();
 	}

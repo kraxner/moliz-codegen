@@ -56,21 +56,10 @@ public class SeriesFactoryImpl extends EFactoryImpl implements SeriesFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case SeriesPackage.ENVIRONMENT: return createEnvironment();
 			case SeriesPackage.COUNTER: return createCounter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Environment createEnvironment() {
-		EnvironmentImpl environment = new EnvironmentImpl();
-		return environment;
 	}
 
 	/**

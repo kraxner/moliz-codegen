@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:fUML.Syntax.Actions.IntermediateActions="http://www.modelexecution.org/xmof/syntax/actions/intermediateactions" xmlns:fUML.Syntax.Activities.IntermediateActivities="http://www.modelexecution.org/xmof/syntax/activities/intermediateactivities" xmlns:fUML.Syntax.CommonBehaviors.BasicBehaviors="http://www.modelexecution.org/xmof/syntax/commonbehaviors/basicbehaviors" xmlns:kernel="http://www.modelexecution.org/xmof/syntax/classes/mykernel" name="seriesConfiguration" nsURI="http://series.examples.org/configuration" nsPrefix="seriesConf">
+  <eClassifiers xsi:type="kernel:MainEClass" name="EnvironmentConfiguration" instanceClassName="" classifierBehavior="//EnvironmentConfiguration/Main">
+    <eSuperTypes href="Series.ecore#//Environment"/>
+    <ownedBehavior xsi:type="fUML.Syntax.Activities.IntermediateActivities:Activity" name="Main" context="//EnvironmentConfiguration">
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:CreateObjectAction" name="Create Counter">
+        <result name="result" outgoing="//EnvironmentConfiguration/Main/@edge.0" lowerBound="1"/>
+        <classifier xsi:type="ecore:EClass" href="Series.ecore#//Counter"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="specify 5">
+        <context xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+        <result name="result" outgoing="//EnvironmentConfiguration/Main/@edge.1" lowerBound="1">
+          <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+        </result>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:AddStructuralFeatureValueAction" name="Add Structural Feature Value Action">
+        <context xsi:type="ecore:EClass" href="Series.ecore#//Counter"/>
+        <structuralFeature xsi:type="ecore:EAttribute" href="Series.ecore#//Counter/limit"/>
+        <object name="object" incoming="//EnvironmentConfiguration/Main/@edge.0" lowerBound="1"/>
+        <value name="value" incoming="//EnvironmentConfiguration/Main/@edge.1" lowerBound="1"/>
+        <result name="result" lowerBound="1"/>
+      </node>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/Create%20Counter/result" target="//EnvironmentConfiguration/Main/Add%20Structural%20Feature%20Value%20Action/object"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/specify%205/result" target="//EnvironmentConfiguration/Main/Add%20Structural%20Feature%20Value%20Action/value"/>
+    </ownedBehavior>
+  </eClassifiers>
+  <eClassifiers xsi:type="kernel:BehavioredEClass" name="CounterConfiguration">
+    <eSuperTypes href="Series.ecore#//Counter"/>
+    <eOperations xsi:type="kernel:BehavioredEOperation" name="nextCounter" method="//CounterConfiguration/nextCounter.1">
+      <eType xsi:type="ecore:EClass" href="Series.ecore#//Counter"/>
+    </eOperations>
+    <ownedBehavior xsi:type="fUML.Syntax.Activities.IntermediateActivities:Activity" name="nextCounter" interface="true" specification="//CounterConfiguration/nextCounter">
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadSelfAction" name="Read Self Action">
+        <result name="result" outgoing="//CounterConfiguration/nextCounter.1/@edge.0 //CounterConfiguration/nextCounter.1/@edge.1" lowerBound="1"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="Read Limit">
+        <structuralFeature xsi:type="ecore:EAttribute" href="Series.ecore#//Counter/limit"/>
+        <object name="object" incoming="//CounterConfiguration/nextCounter.1/@edge.0" lowerBound="1"/>
+        <result name="result" outgoing="//CounterConfiguration/nextCounter.1/@edge.2 //CounterConfiguration/nextCounter.1/@edge.6" upperBound="0"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="Read Value">
+        <object name="object" incoming="//CounterConfiguration/nextCounter.1/@edge.1" lowerBound="1"/>
+        <result name="result" outgoing="//CounterConfiguration/nextCounter.1/@edge.3" upperBound="0"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:DecisionNode" outgoing="//CounterConfiguration/nextCounter.1/@edge.4" incoming="//CounterConfiguration/nextCounter.1/@edge.2 //CounterConfiguration/nextCounter.1/@edge.3"/>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:CreateObjectAction" name="Create next Counter" incoming="//CounterConfiguration/nextCounter.1/@edge.4">
+        <result name="result" outgoing="//CounterConfiguration/nextCounter.1/@edge.5" lowerBound="1">
+          <eType xsi:type="ecore:EClass" href="Series.ecore#//Counter"/>
+        </result>
+        <classifier xsi:type="ecore:EClass" href="Series.ecore#//Counter"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:AddStructuralFeatureValueAction" name="Add Structural Feature Value Action">
+        <structuralFeature xsi:type="ecore:EAttribute" href="Series.ecore#//Counter/value"/>
+        <object name="object" incoming="//CounterConfiguration/nextCounter.1/@edge.5" lowerBound="1"/>
+        <value name="value" incoming="//CounterConfiguration/nextCounter.1/@edge.6" lowerBound="1"/>
+        <result name="result" lowerBound="1"/>
+      </node>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//CounterConfiguration/nextCounter.1/Read%20Self%20Action/result" target="//CounterConfiguration/nextCounter.1/Read%20Limit/object"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//CounterConfiguration/nextCounter.1/Read%20Self%20Action/result" target="//CounterConfiguration/nextCounter.1/Read%20Value/object"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//CounterConfiguration/nextCounter.1/Read%20Limit/result" target="//CounterConfiguration/nextCounter.1/@node.3"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//CounterConfiguration/nextCounter.1/Read%20Value/result" target="//CounterConfiguration/nextCounter.1/@node.3"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//CounterConfiguration/nextCounter.1/@node.3" target="//CounterConfiguration/nextCounter.1/Create%20next%20Counter"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//CounterConfiguration/nextCounter.1/Create%20next%20Counter/result" target="//CounterConfiguration/nextCounter.1/Add%20Structural%20Feature%20Value%20Action/object"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//CounterConfiguration/nextCounter.1/Read%20Limit/result" target="//CounterConfiguration/nextCounter.1/Add%20Structural%20Feature%20Value%20Action/value"/>
+    </ownedBehavior>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="add">
+    <ownedParameter name="x" lowerBound="1"/>
+    <ownedParameter name="y" lowerBound="1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="subtract">
+    <ownedParameter name="x" lowerBound="1"/>
+    <ownedParameter name="y" lowerBound="1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="multiply">
+    <ownedParameter name="x" lowerBound="1"/>
+    <ownedParameter name="y" lowerBound="1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="divide">
+    <ownedParameter name="x" lowerBound="1"/>
+    <ownedParameter name="y" lowerBound="1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="smaller">
+    <ownedParameter name="x" lowerBound="1"/>
+    <ownedParameter name="y" lowerBound="1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="greater">
+    <ownedParameter name="x" lowerBound="1"/>
+    <ownedParameter name="y" lowerBound="1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="listget">
+    <ownedParameter name="list" lowerBound="1" upperBound="-1"/>
+    <ownedParameter name="index" lowerBound="1"/>
+    <ownedParameter name="result" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="listsize">
+    <ownedParameter name="list" upperBound="-1"/>
+    <ownedParameter name="result" lowerBound="1" direction="OUT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="listindexof">
+    <ownedParameter name="list" upperBound="-1"/>
+    <ownedParameter name="object" lowerBound="1"/>
+    <ownedParameter name="result" direction="OUT"/>
+  </eClassifiers>
+</ecore:EPackage>

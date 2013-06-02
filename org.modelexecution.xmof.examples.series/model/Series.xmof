@@ -1,77 +1,85 @@
 <?xml version="1.0" encoding="ASCII"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:fUML.Syntax.Actions.BasicActions="http://www.modelexecution.org/xmof/syntax/actions/basicactions" xmlns:fUML.Syntax.Actions.IntermediateActions="http://www.modelexecution.org/xmof/syntax/actions/intermediateactions" xmlns:fUML.Syntax.Activities.ExtraStructuredActivities="http://www.modelexecution.org/xmof/syntax/activities/extrastructuredactivities" xmlns:fUML.Syntax.Activities.IntermediateActivities="http://www.modelexecution.org/xmof/syntax/activities/intermediateactivities" xmlns:fUML.Syntax.CommonBehaviors.BasicBehaviors="http://www.modelexecution.org/xmof/syntax/commonbehaviors/basicbehaviors" xmlns:kernel="http://www.modelexecution.org/xmof/syntax/classes/mykernel" name="seriesConfiguration" nsURI="http://series.examples.org/configuration" nsPrefix="seriesConf">
-  <eClassifiers xsi:type="kernel:MainEClass" name="EnvironmentConfiguration" instanceClassName="" classifierBehavior="//EnvironmentConfiguration/Main">
-    <eSuperTypes href="Series.ecore#//Environment"/>
-    <ownedBehavior xsi:type="fUML.Syntax.Activities.IntermediateActivities:Activity" name="Main" context="//EnvironmentConfiguration">
-      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadSelfAction" name="Read Self Action">
-        <result name="result" lowerBound="1"/>
-      </node>
-      <node xsi:type="fUML.Syntax.Activities.ExtraStructuredActivities:ExpansionRegion" name="init counter" inputElement="//EnvironmentConfiguration/Main/@node.2" outputElement="//EnvironmentConfiguration/Main/@node.3">
-        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:AddStructuralFeatureValueAction" name="set limit">
-          <structuralFeature xsi:type="ecore:EAttribute" href="Series.ecore#//Counter/limit"/>
-          <object name="object" incoming="//EnvironmentConfiguration/Main/init%20counter/@edge.1" lowerBound="1"/>
-          <value name="value" incoming="//EnvironmentConfiguration/Main/init%20counter/@edge.0" lowerBound="1"/>
-          <result name="result" outgoing="//EnvironmentConfiguration/Main/init%20counter/@edge.2" lowerBound="1"/>
-        </node>
-        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="specify 7">
-          <value xsi:type="kernel:LiteralInteger" value="7"/>
-          <result name="result" outgoing="//EnvironmentConfiguration/Main/init%20counter/@edge.0" lowerBound="1"/>
-        </node>
-        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:AddStructuralFeatureValueAction" name="set value">
-          <structuralFeature xsi:type="ecore:EAttribute" href="Series.ecore#//Counter/value"/>
-          <object name="object" incoming="//EnvironmentConfiguration/Main/init%20counter/@edge.2" lowerBound="1"/>
-          <value name="value" incoming="//EnvironmentConfiguration/Main/init%20counter/@edge.3" lowerBound="1"/>
-          <result name="result" outgoing="//EnvironmentConfiguration/Main/init%20counter/@edge.4" lowerBound="1"/>
-        </node>
-        <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="specify 2">
-          <value xsi:type="kernel:LiteralInteger" value="2"/>
-          <result name="result" outgoing="//EnvironmentConfiguration/Main/init%20counter/@edge.3" lowerBound="1"/>
-        </node>
-        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/init%20counter/specify%207/result" target="//EnvironmentConfiguration/Main/init%20counter/set%20limit/value"/>
-        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/@node.2" target="//EnvironmentConfiguration/Main/init%20counter/set%20limit/object"/>
-        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/init%20counter/set%20limit/result" target="//EnvironmentConfiguration/Main/init%20counter/set%20value/object"/>
-        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/init%20counter/specify%202/result" target="//EnvironmentConfiguration/Main/init%20counter/set%20value/value"/>
-        <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/init%20counter/set%20value/result" target="//EnvironmentConfiguration/Main/@node.3"/>
-        <structuredNodeInput name="input1"/>
-      </node>
-      <node xsi:type="fUML.Syntax.Activities.ExtraStructuredActivities:ExpansionNode" outgoing="//EnvironmentConfiguration/Main/init%20counter/@edge.1" incoming="//EnvironmentConfiguration/Main/@edge.0" regionAsInput="//EnvironmentConfiguration/Main/init%20counter">
-        <eType xsi:type="ecore:EClass" href="Series.ecore#//Counter"/>
-      </node>
-      <node xsi:type="fUML.Syntax.Activities.ExtraStructuredActivities:ExpansionNode" outgoing="//EnvironmentConfiguration/Main/@edge.1" incoming="//EnvironmentConfiguration/Main/init%20counter/@edge.4" regionAsOutput="//EnvironmentConfiguration/Main/init%20counter"/>
-      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:CreateObjectAction" name="create Counter">
-        <context xsi:type="ecore:EClass" href="Series.ecore#//Counter"/>
-        <result name="result" outgoing="//EnvironmentConfiguration/Main/@edge.0" lowerBound="1"/>
-        <classifier xsi:type="ecore:EClass" href="Series.ecore#//Counter"/>
-      </node>
-      <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ForkNode" name="fork 1" outgoing="//EnvironmentConfiguration/Main/@edge.2 //EnvironmentConfiguration/Main/@edge.3" incoming="//EnvironmentConfiguration/Main/@edge.1"/>
-      <node xsi:type="fUML.Syntax.Actions.BasicActions:CallOperationAction" name="Call Operation Action" operation="//CounterConfiguration/nextCounter">
-        <argument name="pre" incoming="//EnvironmentConfiguration/Main/@edge.2"/>
-        <target name="target" incoming="//EnvironmentConfiguration/Main/@edge.3" lowerBound="1"/>
-      </node>
-      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/create%20Counter/result" target="//EnvironmentConfiguration/Main/@node.2"/>
-      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/@node.3" target="//EnvironmentConfiguration/Main/fork%201"/>
-      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/fork%201" target="//EnvironmentConfiguration/Main/Call%20Operation%20Action/pre"/>
-      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//EnvironmentConfiguration/Main/fork%201" target="//EnvironmentConfiguration/Main/Call%20Operation%20Action/target"/>
-    </ownedBehavior>
-  </eClassifiers>
-  <eClassifiers xsi:type="kernel:BehavioredEClass" name="CounterConfiguration">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:fUML.Syntax.Actions.BasicActions="http://www.modelexecution.org/xmof/syntax/actions/basicactions" xmlns:fUML.Syntax.Actions.IntermediateActions="http://www.modelexecution.org/xmof/syntax/actions/intermediateactions" xmlns:fUML.Syntax.Activities.IntermediateActivities="http://www.modelexecution.org/xmof/syntax/activities/intermediateactivities" xmlns:fUML.Syntax.CommonBehaviors.BasicBehaviors="http://www.modelexecution.org/xmof/syntax/commonbehaviors/basicbehaviors" xmlns:kernel="http://www.modelexecution.org/xmof/syntax/classes/mykernel" name="seriesConfiguration" nsURI="http://series.examples.org/configuration" nsPrefix="seriesConf">
+  <eClassifiers xsi:type="kernel:MainEClass" name="CounterConfiguration" classifierBehavior="//CounterConfiguration/Main">
     <eSuperTypes href="Series.ecore#//Counter"/>
-    <eOperations xsi:type="kernel:BehavioredEOperation" name="nextCounter" method="//CounterConfiguration/nextCounter.1">
-      <eType xsi:type="ecore:EClass" href="Series.ecore#//Counter"/>
-      <eParameters xsi:type="kernel:DirectedParameter" name="pre">
-        <eType xsi:type="ecore:EClass" href="Series.ecore#//Counter"/>
-      </eParameters>
-    </eOperations>
-    <ownedBehavior xsi:type="fUML.Syntax.Activities.IntermediateActivities:Activity" name="nextCounter" interface="true" specification="//CounterConfiguration/nextCounter">
-      <eTypeParameters name="out"/>
-      <ownedParameter name="pre">
-        <eType xsi:type="ecore:EClass" href="Series.ecore#//Counter"/>
-      </ownedParameter>
-      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadSelfAction" name="Read Self Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="init" eType="//Initialization" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <ownedBehavior xsi:type="fUML.Syntax.Activities.IntermediateActivities:Activity" name="Main">
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadSelfAction" name="Read self" outgoing="//CounterConfiguration/Main/@edge.23" incoming="//CounterConfiguration/Main/@edge.22">
+        <result name="result" outgoing="//CounterConfiguration/Main/@edge.0" lowerBound="1"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="Read startValue" outgoing="//CounterConfiguration/Main/@edge.17" incoming="//CounterConfiguration/Main/@edge.23">
+        <structuralFeature xsi:type="ecore:EAttribute" href="Series.ecore#//Counter/startValue"/>
+        <object name="object" incoming="//CounterConfiguration/Main/@edge.1" lowerBound="1"/>
+        <result name="result" outgoing="//CounterConfiguration/Main/@edge.2" upperBound="0"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ForkNode" outgoing="//CounterConfiguration/Main/@edge.1 //CounterConfiguration/Main/@edge.3" incoming="//CounterConfiguration/Main/@edge.0"/>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:AddStructuralFeatureValueAction" name="Set value" outgoing="//CounterConfiguration/Main/@edge.13" incoming="//CounterConfiguration/Main/@edge.17" structuralFeature="//CounterConfiguration/value" replaceAll="true">
+        <object name="object" incoming="//CounterConfiguration/Main/@edge.3" lowerBound="1"/>
+        <value name="value" incoming="//CounterConfiguration/Main/@edge.2" lowerBound="1"/>
         <result name="result" lowerBound="1"/>
       </node>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadSelfAction" name="Read self" outgoing="//CounterConfiguration/Main/@edge.18" incoming="//CounterConfiguration/Main/@edge.14">
+        <result name="result" outgoing="//CounterConfiguration/Main/@edge.4" lowerBound="1"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="Read value" outgoing="//CounterConfiguration/Main/@edge.19" incoming="//CounterConfiguration/Main/@edge.18" structuralFeature="//CounterConfiguration/value">
+        <object name="object" incoming="//CounterConfiguration/Main/@edge.5" lowerBound="1"/>
+        <result name="result" outgoing="//CounterConfiguration/Main/@edge.8" upperBound="0"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ReadStructuralFeatureAction" name="Read limit" outgoing="//CounterConfiguration/Main/@edge.16" incoming="//CounterConfiguration/Main/@edge.19">
+        <structuralFeature xsi:type="ecore:EAttribute" href="Series.ecore#//Counter/limit"/>
+        <object name="object" incoming="//CounterConfiguration/Main/@edge.6" lowerBound="1"/>
+        <result name="result" outgoing="//CounterConfiguration/Main/decisionInputFlow" upperBound="0"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:DecisionNode" outgoing="//CounterConfiguration/Main/true" incoming="//CounterConfiguration/Main/@edge.8 //CounterConfiguration/Main/decisionInputFlow" decisionInput="//less" decisionInputFlow="//CounterConfiguration/Main/decisionInputFlow"/>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:ValueSpecificationAction" name="Specify 1" outgoing="//CounterConfiguration/Main/@edge.20" incoming="//CounterConfiguration/Main/@edge.16">
+        <value xsi:type="kernel:LiteralInteger" value="1"/>
+        <result name="result" outgoing="//CounterConfiguration/Main/@edge.11" lowerBound="1"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.BasicActions:CallBehaviorAction" name="Call add" outgoing="//CounterConfiguration/Main/@edge.21" incoming="//CounterConfiguration/Main/@edge.20" behavior="//add">
+        <argument name="x" incoming="//CounterConfiguration/Main/true" lowerBound="1"/>
+        <argument name="y" incoming="//CounterConfiguration/Main/@edge.11" lowerBound="1"/>
+        <result name="result" outgoing="//CounterConfiguration/Main/@edge.12"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Actions.IntermediateActions:AddStructuralFeatureValueAction" name="Set value" outgoing="//CounterConfiguration/Main/@edge.15" incoming="//CounterConfiguration/Main/@edge.21" structuralFeature="//CounterConfiguration/value" replaceAll="true">
+        <object name="object" incoming="//CounterConfiguration/Main/@edge.7" lowerBound="1"/>
+        <value name="value" incoming="//CounterConfiguration/Main/@edge.12" lowerBound="1"/>
+        <result name="result" lowerBound="1"/>
+      </node>
+      <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:ForkNode" outgoing="//CounterConfiguration/Main/@edge.5 //CounterConfiguration/Main/@edge.6 //CounterConfiguration/Main/@edge.7" incoming="//CounterConfiguration/Main/@edge.4"/>
+      <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:MergeNode" outgoing="//CounterConfiguration/Main/@edge.14" incoming="//CounterConfiguration/Main/@edge.13 //CounterConfiguration/Main/@edge.15"/>
+      <node xsi:type="fUML.Syntax.Activities.IntermediateActivities:InitialNode" outgoing="//CounterConfiguration/Main/@edge.22"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//CounterConfiguration/Main/Read%20self/result" target="//CounterConfiguration/Main/@node.2"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//CounterConfiguration/Main/@node.2" target="//CounterConfiguration/Main/Read%20startValue/object"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//CounterConfiguration/Main/Read%20startValue/result" target="//CounterConfiguration/Main/Set%20value/value"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//CounterConfiguration/Main/@node.2" target="//CounterConfiguration/Main/Set%20value/object"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//CounterConfiguration/Main/Read%20self.1/result" target="//CounterConfiguration/Main/@node.11"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//CounterConfiguration/Main/@node.11" target="//CounterConfiguration/Main/Read%20value/object"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//CounterConfiguration/Main/@node.11" target="//CounterConfiguration/Main/Read%20limit/object"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//CounterConfiguration/Main/@node.11" target="//CounterConfiguration/Main/Set%20value.1/object"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//CounterConfiguration/Main/Read%20value/result" target="//CounterConfiguration/Main/@node.7"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" name="decisionInputFlow" source="//CounterConfiguration/Main/Read%20limit/result" target="//CounterConfiguration/Main/@node.7"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" name="true" source="//CounterConfiguration/Main/@node.7" target="//CounterConfiguration/Main/Call%20add/x">
+        <guard xsi:type="kernel:LiteralBoolean" value="true"/>
+      </edge>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//CounterConfiguration/Main/Specify%201/result" target="//CounterConfiguration/Main/Call%20add/y"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ObjectFlow" source="//CounterConfiguration/Main/Call%20add/result" target="//CounterConfiguration/Main/Set%20value.1/value"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//CounterConfiguration/Main/Set%20value" target="//CounterConfiguration/Main/@node.12"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//CounterConfiguration/Main/@node.12" target="//CounterConfiguration/Main/Read%20self.1"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//CounterConfiguration/Main/Set%20value.1" target="//CounterConfiguration/Main/@node.12"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//CounterConfiguration/Main/Read%20limit" target="//CounterConfiguration/Main/Specify%201"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//CounterConfiguration/Main/Read%20startValue" target="//CounterConfiguration/Main/Set%20value"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//CounterConfiguration/Main/Read%20self.1" target="//CounterConfiguration/Main/Read%20value"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//CounterConfiguration/Main/Read%20value" target="//CounterConfiguration/Main/Read%20limit"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//CounterConfiguration/Main/Specify%201" target="//CounterConfiguration/Main/Call%20add"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//CounterConfiguration/Main/Call%20add" target="//CounterConfiguration/Main/Set%20value.1"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//CounterConfiguration/Main/@node.13" target="//CounterConfiguration/Main/Read%20self"/>
+      <edge xsi:type="fUML.Syntax.Activities.IntermediateActivities:ControlFlow" source="//CounterConfiguration/Main/Read%20self" target="//CounterConfiguration/Main/Read%20startValue"/>
     </ownedBehavior>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Initialization"/>
   <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="add">
     <ownedParameter name="x" lowerBound="1"/>
     <ownedParameter name="y" lowerBound="1"/>
@@ -92,7 +100,7 @@
     <ownedParameter name="y" lowerBound="1"/>
     <ownedParameter name="result" lowerBound="1" direction="OUT"/>
   </eClassifiers>
-  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="smaller">
+  <eClassifiers xsi:type="fUML.Syntax.CommonBehaviors.BasicBehaviors:OpaqueBehavior" name="less">
     <ownedParameter name="x" lowerBound="1"/>
     <ownedParameter name="y" lowerBound="1"/>
     <ownedParameter name="result" lowerBound="1" direction="OUT"/>

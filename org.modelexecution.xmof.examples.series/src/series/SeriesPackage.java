@@ -5,7 +5,6 @@ package series;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -56,43 +55,6 @@ public interface SeriesPackage extends EPackage {
 	SeriesPackage eINSTANCE = series.impl.SeriesPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link series.impl.EnvironmentImpl <em>Environment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see series.impl.EnvironmentImpl
-	 * @see series.impl.SeriesPackageImpl#getEnvironment()
-	 * @generated
-	 */
-	int ENVIRONMENT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Counters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENVIRONMENT__COUNTERS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENVIRONMENT__NAME = 1;
-
-	/**
-	 * The number of structural features of the '<em>Environment</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENVIRONMENT_FEATURE_COUNT = 2;
-
-	/**
 	 * The meta object id for the '{@link series.impl.CounterImpl <em>Counter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,7 +62,7 @@ public interface SeriesPackage extends EPackage {
 	 * @see series.impl.SeriesPackageImpl#getCounter()
 	 * @generated
 	 */
-	int COUNTER = 1;
+	int COUNTER = 0;
 
 	/**
 	 * The feature id for the '<em><b>Limit</b></em>' attribute.
@@ -112,13 +74,13 @@ public interface SeriesPackage extends EPackage {
 	int COUNTER__LIMIT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * The feature id for the '<em><b>Start Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COUNTER__VALUE = 1;
+	int COUNTER__START_VALUE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Counter</em>' class.
@@ -129,38 +91,6 @@ public interface SeriesPackage extends EPackage {
 	 */
 	int COUNTER_FEATURE_COUNT = 2;
 
-
-	/**
-	 * Returns the meta object for class '{@link series.Environment <em>Environment</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Environment</em>'.
-	 * @see series.Environment
-	 * @generated
-	 */
-	EClass getEnvironment();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link series.Environment#getCounters <em>Counters</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Counters</em>'.
-	 * @see series.Environment#getCounters()
-	 * @see #getEnvironment()
-	 * @generated
-	 */
-	EReference getEnvironment_Counters();
-
-	/**
-	 * Returns the meta object for the attribute '{@link series.Environment#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see series.Environment#getName()
-	 * @see #getEnvironment()
-	 * @generated
-	 */
-	EAttribute getEnvironment_Name();
 
 	/**
 	 * Returns the meta object for class '{@link series.Counter <em>Counter</em>}'.
@@ -184,15 +114,15 @@ public interface SeriesPackage extends EPackage {
 	EAttribute getCounter_Limit();
 
 	/**
-	 * Returns the meta object for the attribute '{@link series.Counter#getValue <em>Value</em>}'.
+	 * Returns the meta object for the attribute '{@link series.Counter#getStartValue <em>Start Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see series.Counter#getValue()
+	 * @return the meta object for the attribute '<em>Start Value</em>'.
+	 * @see series.Counter#getStartValue()
 	 * @see #getCounter()
 	 * @generated
 	 */
-	EAttribute getCounter_Value();
+	EAttribute getCounter_StartValue();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -217,32 +147,6 @@ public interface SeriesPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link series.impl.EnvironmentImpl <em>Environment</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see series.impl.EnvironmentImpl
-		 * @see series.impl.SeriesPackageImpl#getEnvironment()
-		 * @generated
-		 */
-		EClass ENVIRONMENT = eINSTANCE.getEnvironment();
-
-		/**
-		 * The meta object literal for the '<em><b>Counters</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ENVIRONMENT__COUNTERS = eINSTANCE.getEnvironment_Counters();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ENVIRONMENT__NAME = eINSTANCE.getEnvironment_Name();
-
-		/**
 		 * The meta object literal for the '{@link series.impl.CounterImpl <em>Counter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -261,12 +165,12 @@ public interface SeriesPackage extends EPackage {
 		EAttribute COUNTER__LIMIT = eINSTANCE.getCounter_Limit();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Start Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COUNTER__VALUE = eINSTANCE.getCounter_Value();
+		EAttribute COUNTER__START_VALUE = eINSTANCE.getCounter_StartValue();
 
 	}
 

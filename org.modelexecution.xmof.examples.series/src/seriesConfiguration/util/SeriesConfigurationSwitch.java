@@ -1,13 +1,15 @@
 /**
  */
-package series.util;
+package seriesConfiguration.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import series.*;
+import series.Counter;
+
+import seriesConfiguration.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,17 +21,17 @@ import series.*;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see series.SeriesPackage
+ * @see seriesConfiguration.SeriesConfigurationPackage
  * @generated
  */
-public class SeriesSwitch<T> extends Switch<T> {
+public class SeriesConfigurationSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static SeriesPackage modelPackage;
+	protected static SeriesConfigurationPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -37,9 +39,9 @@ public class SeriesSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SeriesSwitch() {
+	public SeriesConfigurationSwitch() {
 		if (modelPackage == null) {
-			modelPackage = SeriesPackage.eINSTANCE;
+			modelPackage = SeriesConfigurationPackage.eINSTANCE;
 		}
 	}
 
@@ -66,14 +68,51 @@ public class SeriesSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case SeriesPackage.COUNTER: {
-				Counter counter = (Counter)theEObject;
-				T result = caseCounter(counter);
+			case SeriesConfigurationPackage.COUNTER_CONFIGURATION: {
+				CounterConfiguration counterConfiguration = (CounterConfiguration)theEObject;
+				T result = caseCounterConfiguration(counterConfiguration);
+				if (result == null) result = caseCounter(counterConfiguration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SeriesConfigurationPackage.INITIALIZATION: {
+				Initialization initialization = (Initialization)theEObject;
+				T result = caseInitialization(initialization);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Counter Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Counter Configuration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCounterConfiguration(CounterConfiguration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Initialization</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Initialization</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInitialization(Initialization object) {
+		return null;
 	}
 
 	/**
@@ -107,4 +146,4 @@ public class SeriesSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //SeriesSwitch
+} //SeriesConfigurationSwitch

@@ -22,15 +22,6 @@ public interface SeriesFactory extends EFactory {
 	SeriesFactory eINSTANCE = series.impl.SeriesFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Environment</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Environment</em>'.
-	 * @generated
-	 */
-	Environment createEnvironment();
-
-	/**
 	 * Returns a new object of class '<em>Counter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

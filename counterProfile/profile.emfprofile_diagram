@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:emfprofile="http://www.modelversioning.org/emfprofile/1.1" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation">
+  <emfprofile:Profile xmi:id="_8XAkgMkZEeKAnO3QaSt8wg" name="seriesConfigurationProfile" nsURI="http://series.examples.org/configuration/profile" nsPrefix="seriesConf_profile">
+    <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_8XAkgckZEeKAnO3QaSt8wg" name="CounterConfigurationStereotype">
+      <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
+      <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_8XAkgskZEeKAnO3QaSt8wg" name="init" containment="true">
+        <eType xmi:type="ecore:EClass" href="platform:/resource/org.modelexecution.xmof.examples.series/model/Series.xmof#//Initialization"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_8XAkhMkZEeKAnO3QaSt8wg" name="value">
+        <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eStructuralFeatures>
+      <extensions xmi:type="emfprofile:Extension" xmi:id="_8XAkh8kZEeKAnO3QaSt8wg" upperBound="1">
+        <target xmi:type="ecore:EClass" href="platform:/resource/org.modelexecution.xmof.examples.series/model/Series.ecore#//Counter"/>
+      </extensions>
+    </eClassifiers>
+  </emfprofile:Profile>
+  <notation:Diagram xmi:id="_8W2zgckZEeKAnO3QaSt8wg" type="EMFProfile" name="profile.emfprofile_diagram" measurementUnit="Pixel">
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_8W2zgskZEeKAnO3QaSt8wg"/>
+  </notation:Diagram>
+</xmi:XMI>

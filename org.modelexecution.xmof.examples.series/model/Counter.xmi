@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<series:Counter
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:series="http://series.examples.org"
+    xsi:schemaLocation="http://series.examples.org Series.ecore"
+    limit="5"
+    startValue="1"/>
